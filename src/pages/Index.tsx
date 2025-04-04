@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
+import AIReasoningDiagram from '@/components/AIReasoningDiagram';
 import Benefits from '@/components/Benefits';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
@@ -31,14 +31,14 @@ const testimonials = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <Hero />
-      <Features />
+      <AIReasoningDiagram />
       <Benefits />
       
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-16 md:py-24">
+      <section id="testimonials" className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">
