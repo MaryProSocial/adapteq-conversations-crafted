@@ -21,13 +21,13 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
               <div className="relative w-full max-w-md">
-                <input 
-                  type="email" 
-                  placeholder="Enter email for demo"
-                  className="w-full py-3 px-4 border border-adapteq-purple rounded-md" 
-                />
-                <div className="flex justify-center mt-3">
-                  <Button className="bg-adapteq-purple hover:bg-adapteq-dark-purple text-white rounded-md h-10 w-10 flex items-center justify-center p-0">
+                <div className="flex items-center">
+                  <input 
+                    type="email" 
+                    placeholder="Enter email for demo"
+                    className="w-full py-3 px-4 border border-adapteq-purple rounded-l-md" 
+                  />
+                  <Button className="bg-adapteq-purple hover:bg-adapteq-dark-purple text-white rounded-l-none h-[46px] flex items-center justify-center">
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </div>
