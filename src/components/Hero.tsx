@@ -19,19 +19,18 @@ const Hero = () => {
             <p className="text-lg leading-relaxed text-gray-700">
               Built for human services, our adaptive agent learns from each interaction to deepen user connections, improve outcomes, and increase engagement.
             </p>
-            <p className="text-lg leading-relaxed text-gray-700">
-              <span className="font-bold">Not just chat</span> - It's an intelligent system that supports people the way your team would—learning what works, remembering what matters, and helping your organization deliver more meaningful, mission-aligned conversations at scale.
-            </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
               <div className="relative w-full max-w-md">
                 <input 
                   type="email" 
-                  placeholder="Enter your email"
-                  className="w-full py-3 px-4 border border-adapteq-purple rounded-md pr-12" 
+                  placeholder="Enter email for demo"
+                  className="w-full py-3 px-4 border border-adapteq-purple rounded-md" 
                 />
-                <Button className="absolute right-0 top-0 h-full bg-adapteq-purple hover:bg-adapteq-dark-purple text-white rounded-l-none">
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
+                <div className="flex justify-center mt-3">
+                  <Button className="bg-adapteq-purple hover:bg-adapteq-dark-purple text-white rounded-md h-10 w-10 flex items-center justify-center p-0">
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
