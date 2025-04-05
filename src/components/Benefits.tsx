@@ -1,9 +1,14 @@
+
 import React from 'react';
 import { 
   TrendingUp, 
   Shield, 
   Users, 
-  Clock 
+  Clock,
+  Home,
+  Briefcase,
+  MessageSquare,
+  BookOpen
 } from 'lucide-react';
 
 const Benefits = () => {
@@ -59,24 +64,24 @@ const Benefits = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-800 to-purple-400 rounded-lg blur opacity-30"></div>
               <div className="relative bg-white rounded-lg overflow-hidden shadow-xl p-6">
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-2">Where It's Already Making a Difference</h3>
+                  <h3 className="text-xl font-semibold mb-2">Imagine the Difference</h3>
                   <div className="h-1 w-16 bg-gradient-to-r from-blue-800 to-purple-400"></div>
                 </div>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-3 w-3 rounded-full bg-adapteq-purple"></div>
+                      <Home className="h-5 w-5 text-adapteq-purple" />
                     </div>
                     <div className="ml-4">
-                      <p className="font-medium">Housing Navigation</p>
-                      <p className="text-sm text-gray-600">A tenant reaches out unsure if they qualify for support. The system listens for key details, offers clarification in plain language, and helps them take the next step—without needing to wait in a queue or repeat their story.</p>
+                      <p className="font-medium">Human Services</p>
+                      <p className="text-sm text-gray-600">A tenant reaches out to their local housing agency unsure if they qualify for support. The system listens for key details, offers clarification in plain language, and helps them take the next step—without needing to wait in a queue or repeat their story.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-3 w-3 rounded-full bg-adapteq-purple"></div>
+                      <Briefcase className="h-5 w-5 text-adapteq-purple" />
                     </div>
                     <div className="ml-4">
                       <p className="font-medium">Workplace Support</p>
@@ -86,7 +91,7 @@ const Benefits = () => {
                   
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-3 w-3 rounded-full bg-adapteq-purple"></div>
+                      <MessageSquare className="h-5 w-5 text-adapteq-purple" />
                     </div>
                     <div className="ml-4">
                       <p className="font-medium">Interview Coaching</p>
@@ -96,7 +101,7 @@ const Benefits = () => {
                   
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-3 w-3 rounded-full bg-adapteq-purple"></div>
+                      <BookOpen className="h-5 w-5 text-adapteq-purple" />
                     </div>
                     <div className="ml-4">
                       <p className="font-medium">Student Advising</p>
