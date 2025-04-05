@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { ArrowRight, Send } from 'lucide-react';
+import { Send, Settings, Edit } from 'lucide-react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,7 +28,7 @@ const RESPONSE_STRATEGIES = {
   probing: {
     name: 'Probing Question',
     responses: {
-      housing: "Is there a specific area in King County where you're looking for housing assistance? Different neighborhoods have different resources available.",
+      housing: "Is there a specific area in King County where you live that you're looking for housing assistance?",
       benefits: "Which specific benefits are you interested in learning more about - food assistance, healthcare, or income support?",
       childcare: "What ages are your children, and do you need full-time or part-time childcare options?"
     }
@@ -54,6 +54,8 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   const [inputValue, setInputValue] = useState("I'm looking for housing assistance programs in my area.");
   const [selectedStrategy, setSelectedStrategy] = useState<ResponseStrategy>('direct');
   const [isTyping, setIsTyping] = useState(false);
+  const [showStrategyOptions, setShowStrategyOptions] = useState(false);
+  const [recentlyChanged, setRecentlyChanged] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [currentTopic, setCurrentTopic] = useState('housing');
   const [lastBotMessageIndex, setLastBotMessageIndex] = useState(-1);
@@ -67,6 +69,10 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   useEffect(() => {
     if (lastBotMessageIndex >= 0) {
       updateResponseForCurrentStrategy();
+      
+      // Add animation effect when strategy changes
+      setRecentlyChanged(true);
+      setTimeout(() => setRecentlyChanged(false), 1500);
     }
   }, [selectedStrategy]);
 
@@ -129,25 +135,44 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
     setSelectedStrategy(strategy);
   };
 
+  const toggleStrategyOptions = () => {
+    setShowStrategyOptions(prev => !prev);
+  };
+
   return (
     <Card className={`bg-white shadow-xl rounded-2xl overflow-hidden ${className}`}>
-      <div className="p-4 bg-adapteq-navy text-white rounded-t-lg flex flex-col sm:flex-row justify-between items-center gap-2">
-        <p className="font-mono text-sm">Select response strategy:</p>
-        <ToggleGroup type="single" value={selectedStrategy} onValueChange={(value) => value && handleStrategyChange(value as ResponseStrategy)} className="flex flex-wrap justify-center gap-1">
-          {Object.entries(RESPONSE_STRATEGIES).map(([key, strategy]) => (
-            <ToggleGroupItem 
-              key={key} 
-              value={key}
-              className={`text-xs py-1 px-2 h-auto text-white border border-adapteq-light-purple ${
-                selectedStrategy === key 
-                  ? 'bg-adapteq-purple hover:bg-adapteq-dark-purple' 
-                  : 'bg-adapteq-navy hover:bg-adapteq-light-purple/20'
-              }`}
-            >
-              {strategy.name}
-            </ToggleGroupItem>
-          ))}
-        </ToggleGroup>
+      <div className="p-4 bg-adapteq-navy text-white rounded-t-lg flex justify-between items-center">
+        {!showStrategyOptions ? (
+          <Button 
+            variant="ghost" 
+            onClick={toggleStrategyOptions} 
+            className="text-xs py-1 px-2 h-auto text-white hover:bg-adapteq-light-purple/20 flex items-center gap-1 animate-fade-in"
+          >
+            <Edit className="h-4 w-4 mr-1" />
+            Change Response Strategy
+          </Button>
+        ) : (
+          <ToggleGroup 
+            type="single" 
+            value={selectedStrategy} 
+            onValueChange={(value) => value && handleStrategyChange(value as ResponseStrategy)} 
+            className="flex flex-wrap justify-center gap-1 animate-fade-in"
+          >
+            {Object.entries(RESPONSE_STRATEGIES).map(([key, strategy]) => (
+              <ToggleGroupItem 
+                key={key} 
+                value={key}
+                className={`text-xs py-1 px-2 h-auto text-white border border-adapteq-light-purple ${
+                  selectedStrategy === key 
+                    ? 'bg-adapteq-purple hover:bg-adapteq-dark-purple' 
+                    : 'bg-adapteq-navy hover:bg-adapteq-light-purple/20'
+                }`}
+              >
+                {strategy.name}
+              </ToggleGroupItem>
+            ))}
+          </ToggleGroup>
+        )}
       </div>
       <div className="p-6">
         <ScrollArea className="h-64 pr-4">
@@ -156,7 +181,13 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
               <div key={index} className={`flex ${message.isUser ? '' : 'justify-end'}`}>
                 <div 
                   className={`p-3 rounded-lg max-w-[80%] ${
-                    message.isUser ? 'bg-gray-100' : 'bg-adapteq-light-purple'
+                    message.isUser 
+                      ? 'bg-gray-100' 
+                      : `bg-adapteq-light-purple ${
+                          recentlyChanged && index === lastBotMessageIndex 
+                            ? 'animate-fade-in shadow-glow' 
+                            : ''
+                        }`
                   }`}
                 >
                   <p className="text-sm">{message.content}</p>
