@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Search, Brain, Memory, Settings, RefreshCw, BookOpen, Tv, ClipboardList } from 'lucide-react';
+import { Search, Brain, Database, Settings, RefreshCw, BookOpen, Tv, ClipboardList } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -34,7 +34,7 @@ const HowItWorks = () => {
       }
     },
     {
-      icon: <Memory className="h-12 w-12 text-teal-500" />,
+      icon: <Database className="h-12 w-12 text-teal-500" />,
       emoji: "🧠",
       title: "Remembers What Matters",
       description: "Recalls examples, facts, and past interactions from multiple memory systems.",
