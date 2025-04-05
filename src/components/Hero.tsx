@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 import InteractiveChat from './InteractiveChat';
 
 const Hero = () => {
@@ -11,7 +11,9 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2 space-y-6">
             <div className="flex items-center mb-4">
-              <Brain className="w-8 h-8 text-adapteq-purple mr-2" />
+              <div className="w-8 h-8 bg-adapteq-purple text-white rounded-lg flex items-center justify-center mr-2 font-bold">
+                A
+              </div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                 adapteq
               </h1>
