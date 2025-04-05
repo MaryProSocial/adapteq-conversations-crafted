@@ -7,7 +7,7 @@ const CTA = () => {
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="bg-gradient-to-r from-adapteq-purple to-adapteq-blue rounded-2xl overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-800 to-purple-400 rounded-2xl overflow-hidden">
           <div className="flex flex-col md:flex-row">
             <div className="p-8 md:p-12 lg:p-16 text-white md:w-3/5">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to transform your human services?</h2>
