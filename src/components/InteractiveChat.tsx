@@ -1,10 +1,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Settings, Edit } from 'lucide-react';
+import { Send, Edit } from 'lucide-react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -19,27 +18,15 @@ type ResponseStrategy = 'direct' | 'probing' | 'action';
 const RESPONSE_STRATEGIES = {
   direct: {
     name: 'Direct Support',
-    responses: {
-      housing: "For housing assistance in King County, I recommend contacting the King County Housing Authority at (206) 214-1300. They can help with Section 8 vouchers and emergency rental assistance.",
-      benefits: "You can access benefits by visiting Washington Connection (washingtonconnection.org) or calling DSHS at 1-877-501-2233 to apply for food, cash, and medical assistance.",
-      childcare: "For childcare assistance, contact Child Care Aware at 1-800-446-1114. They can connect you with local providers and subsidy programs."
-    }
+    response: "For housing assistance in King County, I recommend contacting the King County Housing Authority at (206) 214-1300. They can help with Section 8 vouchers and emergency rental assistance."
   },
   probing: {
     name: 'Probing Question',
-    responses: {
-      housing: "Is there a specific area in King County where you live that you're looking for housing assistance?",
-      benefits: "Which specific benefits are you interested in learning more about - food assistance, healthcare, or income support?",
-      childcare: "What ages are your children, and do you need full-time or part-time childcare options?"
-    }
+    response: "Is there a specific area in King County where you live that you're looking for housing assistance?"
   },
   action: {
     name: 'Action Oriented',
-    responses: {
-      housing: "To access housing assistance: 1) Visit kingcountyhousingauthority.org 2) Complete an eligibility screening 3) Gather required documents (ID, income verification) 4) Submit your application online or in person.",
-      benefits: "To apply for benefits: 1) Go to washingtonconnection.org 2) Create an account 3) Complete the benefits application 4) Submit your documentation 5) Check your application status within 7-10 days.",
-      childcare: "For childcare: 1) Call Child Care Aware at 1-800-446-1114 2) Provide your location and childcare needs 3) Review the provider list they send 4) Contact providers directly to check availability."
-    }
+    response: "To access housing assistance: 1) Visit kingcountyhousingauthority.org 2) Complete an eligibility screening 3) Gather required documents (ID, income verification) 4) Submit your application online or in person."
   }
 };
 
@@ -57,7 +44,6 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   const [showStrategyOptions, setShowStrategyOptions] = useState(false);
   const [recentlyChanged, setRecentlyChanged] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [currentTopic, setCurrentTopic] = useState('housing');
   const [lastBotMessageIndex, setLastBotMessageIndex] = useState(-1);
 
   // Scroll to bottom whenever messages change
@@ -77,7 +63,7 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   }, [selectedStrategy]);
 
   const updateResponseForCurrentStrategy = () => {
-    const responseContent = RESPONSE_STRATEGIES[selectedStrategy].responses[currentTopic as keyof typeof RESPONSE_STRATEGIES[typeof selectedStrategy]['responses']];
+    const responseContent = RESPONSE_STRATEGIES[selectedStrategy].response;
     
     setMessages(prev => {
       const newMessages = [...prev];
@@ -107,8 +93,8 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
     setTimeout(() => {
       setIsTyping(false);
       
-      // Get response based on current strategy and topic
-      const responseContent = RESPONSE_STRATEGIES[selectedStrategy].responses[currentTopic as keyof typeof RESPONSE_STRATEGIES[typeof selectedStrategy]['responses']];
+      // Get response based on current strategy
+      const responseContent = RESPONSE_STRATEGIES[selectedStrategy].response;
       
       // Add AI response
       setMessages(prev => {
@@ -117,17 +103,8 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
         return newMessages;
       });
       
-      // Set next input based on topic
-      if (currentTopic === 'housing') {
-        setInputValue("Do I need to provide any documentation?");
-        setCurrentTopic('benefits');
-      } else if (currentTopic === 'benefits') {
-        setInputValue("How can I find childcare services near me?");
-        setCurrentTopic('childcare');
-      } else {
-        setInputValue("Thank you for your help!");
-        setCurrentTopic('housing');
-      }
+      // Clear input field after sending
+      setInputValue('');
     }, 1500);
   };
 
