@@ -20,12 +20,12 @@ const Benefits = () => {
     },
     {
       icon: <Shield size={36} className="text-adapteq-purple" />,
-      title: "Faster Resolution",
+      title: "Better Outcomes",
       description: "The system collects the right information upfront, understands what's being asked, and moves the conversation forward efficiently—no repetition needed."
     },
     {
       icon: <Users size={36} className="text-adapteq-purple" />,
-      title: "Scalable Support",
+      title: "Flexible Support",
       description: "Works 24/7 across languages, literacy levels, and digital skills—giving every client an experience that feels personal, no matter the volume."
     },
     {
@@ -41,12 +41,11 @@ const Benefits = () => {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
             <h2 className="heading-2 mb-6">
-              Why Choose <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">ADAPTEQ</span> for Human Services
+              Why Choose <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">ADAPTEQ</span>
             </h2>
             <p className="body-text mb-8">
-              Our system is designed to support human service organizations with adaptive, memory-aware AI. 
-              From housing to workforce development, we help teams engage more effectively, scale support, 
-              and never lose the human touch.
+              Our system is designed to drive conversational outcomes in systems where connections matter, 
+              with adaptive, memory-aware AI.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
