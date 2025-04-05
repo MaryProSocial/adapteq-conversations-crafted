@@ -8,7 +8,7 @@ const HowItWorks = () => {
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="heading-2 mb-4">
-            The Intelligence Behind <span className="text-adapteq-purple">Every Conversation</span>
+            The Intelligence Behind <span className="bg-clip-text text-transparent bg-gradient-to-r from-adapteq-purple to-adapteq-blue">Every Conversation</span>
           </h2>
         </div>
 

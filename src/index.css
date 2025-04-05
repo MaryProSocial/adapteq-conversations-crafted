@@ -97,7 +97,7 @@
   }
   
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-adapteq-blue to-adapteq-teal;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-adapteq-purple to-adapteq-blue;
   }
   
   .card-shadow {

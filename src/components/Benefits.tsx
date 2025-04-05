@@ -37,7 +37,7 @@ const Benefits = () => {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
             <h2 className="heading-2 mb-6">
-              Why Choose <span className="gradient-text">adapteq</span> for Human Services
+              Why Choose <span className="bg-clip-text text-transparent bg-gradient-to-r from-adapteq-purple to-adapteq-blue">ADAPTEQ</span> for Human Services
             </h2>
             <p className="body-text mb-8">
               Our system is designed to support human service organizations with adaptive, memory-aware AI. 
@@ -61,7 +61,7 @@ const Benefits = () => {
               <div className="relative bg-white rounded-lg overflow-hidden shadow-xl p-6">
                 <div className="mb-6">
                   <h3 className="text-xl font-semibold mb-2">Where It's Already Making a Difference</h3>
-                  <div className="h-1 w-16 bg-gradient-to-r from-adapteq-blue to-adapteq-purple"></div>
+                  <div className="h-1 w-16 bg-gradient-to-r from-adapteq-purple to-adapteq-blue"></div>
                 </div>
                 
                 <div className="space-y-6">
