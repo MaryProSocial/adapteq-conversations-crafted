@@ -116,9 +116,9 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
 
   return (
     <div className="flex flex-col space-y-3">
-      <div className="text-center">
+      <div className="text-left">
         <h3 className="text-xl font-semibold text-adapteq-navy">Personalize and Adapt</h3>
-        <p className="text-sm text-gray-600 max-w-md mx-auto">
+        <p className="text-sm text-gray-600">
           Adaptive user conversations that automatically detect which responses work best and reinforce successful outcomes in real time
         </p>
       </div>

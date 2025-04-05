@@ -12,7 +12,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="/" className="flex items-center">
-              <span className="text-2xl font-bold gradient-text">adapteq</span>
+              <span className="text-2xl font-bold">
+                <span className="text-adapteq-navy">Adapt</span>
+                <span className="text-adapteq-purple/70">eq</span>
+              </span>
             </a>
           </div>
 

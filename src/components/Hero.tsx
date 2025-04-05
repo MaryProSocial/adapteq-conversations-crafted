@@ -10,11 +10,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2 space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold">
-              <span className="text-adapteq-navy">Adapt</span>
-              <span className="text-adapteq-purple/70">eq</span>
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-adapteq-purple">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-adapteq-purple">
               Human Centered Connection
             </h2>
             <h3 className="text-xl md:text-2xl text-adapteq-navy">
