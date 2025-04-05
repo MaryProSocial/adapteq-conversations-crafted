@@ -27,7 +27,8 @@ const Hero = () => {
                     placeholder="Enter email for demo"
                     className="w-full py-3 px-4 border border-adapteq-purple rounded-l-md" 
                   />
-                  <Button className="bg-adapteq-purple hover:bg-adapteq-dark-purple text-white rounded-l-none h-[46px] flex items-center justify-center">
+                  <div className="w-2"></div>
+                  <Button className="bg-adapteq-purple hover:bg-adapteq-dark-purple text-white rounded-md h-[46px] flex items-center justify-center">
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </div>
