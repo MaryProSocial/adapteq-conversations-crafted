@@ -8,7 +8,7 @@ const HowItWorks = () => {
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="heading-2 mb-4">
-            The Intelligence Behind <span className="gradient-text">Every Conversation</span>
+            The Intelligence Behind <span className="text-adapteq-purple">Every Conversation</span>
           </h2>
         </div>
 
@@ -47,7 +47,7 @@ const HowItWorks = () => {
                 <div className="relative bg-adapteq-light-blue p-8 rounded-xl w-72 h-72">
                   <div className="flex flex-col gap-4 h-full">
                     <div className="bg-white p-4 rounded-lg flex items-center gap-3">
-                      <BookOpen className="h-8 w-8 text-adapteq-blue" />
+                      <BookOpen className="h-8 w-8 text-adapteq-purple" />
                       <div>
                         <h4 className="font-bold">Semantic Memory</h4>
                         <p className="text-sm text-gray-600">Facts & Knowledge</p>
@@ -61,7 +61,7 @@ const HowItWorks = () => {
                       </div>
                     </div>
                     <div className="bg-white p-4 rounded-lg flex items-center gap-3">
-                      <ClipboardList className="h-8 w-8 text-teal-500" />
+                      <ClipboardList className="h-8 w-8 text-adapteq-purple" />
                       <div>
                         <h4 className="font-bold">Procedural Memory</h4>
                         <p className="text-sm text-gray-600">Response Strategies</p>
@@ -138,14 +138,14 @@ const HowItWorks = () => {
                     
                     <div className="flex flex-col items-center text-center">
                       <div className="mb-2 bg-white p-3 rounded-full shadow-md">
-                        <RefreshCw className="h-6 w-6 text-adapteq-blue" />
+                        <RefreshCw className="h-6 w-6 text-adapteq-purple" />
                       </div>
                       <p className="text-xs font-medium">Train Models</p>
                     </div>
                     
                     <div className="flex flex-col items-center text-center">
                       <div className="mb-2 bg-white p-3 rounded-full shadow-md">
-                        <Brain className="h-6 w-6 text-teal-500" />
+                        <Brain className="h-6 w-6 text-adapteq-purple" />
                       </div>
                       <p className="text-xs font-medium">Improve Results</p>
                     </div>
