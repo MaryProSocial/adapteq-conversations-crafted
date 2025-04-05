@@ -20,25 +20,25 @@ const RESPONSE_STRATEGIES = {
   direct: {
     name: 'Direct Support',
     responses: {
-      housing: "Housing assistance programs in King County include Section 8 vouchers and emergency rental assistance. Contact KCHA at (206) 214-1300 for eligibility information.",
-      benefits: "For benefits assistance, visit the DSHS website or call 1-877-501-2233 to check eligibility for food, cash, and medical assistance programs.",
-      childcare: "Childcare resources include Working Connections Child Care and the Child Care Aware Referral Center. Call 1-800-446-1114 for assistance finding providers."
+      housing: "For housing assistance in King County, I recommend contacting the King County Housing Authority at (206) 214-1300. They can help with Section 8 vouchers and emergency rental assistance.",
+      benefits: "You can access benefits by visiting Washington Connection (washingtonconnection.org) or calling DSHS at 1-877-501-2233 to apply for food, cash, and medical assistance.",
+      childcare: "For childcare assistance, contact Child Care Aware at 1-800-446-1114. They can connect you with local providers and subsidy programs."
     }
   },
   probing: {
     name: 'Probing Question',
     responses: {
-      housing: "To help you find suitable housing assistance, could you tell me about your household size and current income level?",
-      benefits: "What specific types of benefits are you currently interested in learning more about?",
-      childcare: "What ages are the children you need care for, and do you have specific schedule requirements for childcare?"
+      housing: "Is there a specific area in King County where you're looking for housing assistance? Different neighborhoods have different resources available.",
+      benefits: "Which specific benefits are you interested in learning more about - food assistance, healthcare, or income support?",
+      childcare: "What ages are your children, and do you need full-time or part-time childcare options?"
     }
   },
   action: {
     name: 'Action Oriented',
     responses: {
-      housing: "Step 1: Visit the King County Housing website. Step 2: Complete the online eligibility form. Step 3: Schedule an appointment with a housing navigator at 206-214-1300.",
-      benefits: "Step 1: Create an account on Washington Connection. Step 2: Complete the benefit eligibility screener. Step 3: Submit your application and required documents.",
-      childcare: "Step 1: Call Child Care Aware at 1-800-446-1114. Step 2: Request a personalized provider list. Step 3: Contact providers about availability and tour facilities."
+      housing: "To access housing assistance: 1) Visit kingcountyhousingauthority.org 2) Complete an eligibility screening 3) Gather required documents (ID, income verification) 4) Submit your application online or in person.",
+      benefits: "To apply for benefits: 1) Go to washingtonconnection.org 2) Create an account 3) Complete the benefits application 4) Submit your documentation 5) Check your application status within 7-10 days.",
+      childcare: "For childcare: 1) Call Child Care Aware at 1-800-446-1114 2) Provide your location and childcare needs 3) Review the provider list they send 4) Contact providers directly to check availability."
     }
   }
 };
@@ -49,9 +49,9 @@ interface InteractiveChatProps {
 
 const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { content: "I'm looking for housing assistance programs in my area. Can you help?", isUser: true },
+    { content: "Welcome to adapteq! I'm here to help with housing, benefits, and social services information. How can I assist you today?", isUser: false },
   ]);
-  const [inputValue, setInputValue] = useState("I'm in King County, Washington.");
+  const [inputValue, setInputValue] = useState("I'm looking for housing assistance programs in my area. Can you help?");
   const [selectedStrategy, setSelectedStrategy] = useState<ResponseStrategy>('direct');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -132,7 +132,7 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   return (
     <Card className={`bg-white shadow-xl rounded-2xl overflow-hidden ${className}`}>
       <div className="p-4 bg-adapteq-navy text-white rounded-t-lg flex flex-col sm:flex-row justify-between items-center gap-2">
-        <p className="font-mono text-sm">adapteq conversational agent</p>
+        <p className="font-mono text-sm">Select response strategy:</p>
         <ToggleGroup type="single" value={selectedStrategy} onValueChange={(value) => value && handleStrategyChange(value as ResponseStrategy)} className="flex flex-wrap justify-center gap-1">
           {Object.entries(RESPONSE_STRATEGIES).map(([key, strategy]) => (
             <ToggleGroupItem 
