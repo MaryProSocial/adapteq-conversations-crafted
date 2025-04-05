@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import InteractiveChat from './InteractiveChat';
 
 const Hero = () => {
@@ -10,30 +10,33 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2 space-y-6">
-            <div className="flex items-center mb-4">
-              <div className="w-8 h-8 bg-adapteq-purple text-white rounded-lg flex items-center justify-center mr-2 font-bold">
-                A
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                adapteq
-              </h1>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-bold">
+              <span className="text-adapteq-navy">Adapt</span>
+              <span className="text-adapteq-purple/70">eq</span>
+            </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-adapteq-purple">
-              Adaptive Conversational Agent with Reinforcement Learning
+              Human Centered Connection
             </h2>
+            <h3 className="text-xl md:text-2xl text-adapteq-navy">
+              Adaptive AI Conversations That Evolve With Every Interaction
+            </h3>
             <p className="text-lg leading-relaxed text-gray-700">
-              An advanced conversational AI built specifically for human services. 
-              With adaptive prompting, model orchestration, and conversation health analytics, 
-              we're redefining how organizations connect with those they serve.
+              Built for human services, our adaptive agent learns from each interaction to deepen user connections, improve outcomes, and increase engagement.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-adapteq-purple hover:bg-adapteq-dark-purple text-white py-6 px-8 text-lg">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button variant="outline" className="border-adapteq-purple text-adapteq-purple hover:bg-adapteq-light-purple py-6 px-8 text-lg">
-                Watch Demo
-              </Button>
+            <p className="text-lg leading-relaxed text-gray-700">
+              <span className="font-bold">Not just chat</span> - It's an intelligent system that supports people the way your team would—learning what works, remembering what matters, and helping your organization deliver more meaningful, mission-aligned conversations at scale.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
+              <div className="relative w-full max-w-md">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email"
+                  className="w-full py-3 px-4 border border-adapteq-purple rounded-md pr-12" 
+                />
+                <Button className="absolute right-0 top-0 h-full bg-adapteq-purple hover:bg-adapteq-dark-purple text-white rounded-l-none">
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </div>
             </div>
           </div>
           <div className="md:w-1/2">
