@@ -51,7 +51,7 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     { content: "Welcome to adapteq! I'm here to help with housing, benefits, and social services information. How can I assist you today?", isUser: false },
   ]);
-  const [inputValue, setInputValue] = useState("I'm looking for housing assistance programs in my area. Can you help?");
+  const [inputValue, setInputValue] = useState("I'm looking for housing assistance programs in my area.");
   const [selectedStrategy, setSelectedStrategy] = useState<ResponseStrategy>('direct');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
