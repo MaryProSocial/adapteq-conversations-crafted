@@ -43,13 +43,8 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   const [isTyping, setIsTyping] = useState(false);
   const [showStrategyOptions, setShowStrategyOptions] = useState(false);
   const [recentlyChanged, setRecentlyChanged] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
   const [lastBotMessageIndex, setLastBotMessageIndex] = useState(-1);
-
-  // Scroll to bottom whenever messages change
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  const [hasUserSentMessage, setHasUserSentMessage] = useState(false);
 
   // Update response when strategy changes
   useEffect(() => {
@@ -79,12 +74,11 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
       e.preventDefault();
     }
     
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || hasUserSentMessage) return;
     
     // Add user message
     const userMessage = { content: inputValue, isUser: true };
     setMessages([...messages, userMessage]);
-    setInputValue('');
     
     // Show typing indicator
     setIsTyping(true);
@@ -103,6 +97,9 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
         return newMessages;
       });
       
+      // Mark that user has sent a message
+      setHasUserSentMessage(true);
+      
       // Clear input field after sending
       setInputValue('');
     }, 1500);
@@ -117,91 +114,101 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   };
 
   return (
-    <Card className={`bg-white shadow-xl rounded-2xl overflow-hidden ${className}`}>
-      <div className="p-4 bg-adapteq-navy text-white rounded-t-lg flex justify-between items-center">
-        {!showStrategyOptions ? (
-          <Button 
-            variant="ghost" 
-            onClick={toggleStrategyOptions} 
-            className="text-xs py-1 px-2 h-auto text-white hover:bg-adapteq-light-purple/20 flex items-center gap-1 animate-fade-in"
-          >
-            <Edit className="h-4 w-4 mr-1" />
-            Change Response Strategy
-          </Button>
-        ) : (
-          <ToggleGroup 
-            type="single" 
-            value={selectedStrategy} 
-            onValueChange={(value) => value && handleStrategyChange(value as ResponseStrategy)} 
-            className="flex flex-wrap justify-center gap-1 animate-fade-in"
-          >
-            {Object.entries(RESPONSE_STRATEGIES).map(([key, strategy]) => (
-              <ToggleGroupItem 
-                key={key} 
-                value={key}
-                className={`text-xs py-1 px-2 h-auto text-white border border-adapteq-light-purple ${
-                  selectedStrategy === key 
-                    ? 'bg-adapteq-purple hover:bg-adapteq-dark-purple' 
-                    : 'bg-adapteq-navy hover:bg-adapteq-light-purple/20'
-                }`}
-              >
-                {strategy.name}
-              </ToggleGroupItem>
-            ))}
-          </ToggleGroup>
-        )}
+    <div className="flex flex-col space-y-3">
+      <div className="text-center">
+        <h3 className="text-xl font-semibold text-adapteq-navy">Personalize and Adapt</h3>
+        <p className="text-sm text-gray-600 max-w-md mx-auto">
+          Adaptive user conversations that automatically detect which responses work best and reinforce successful outcomes in real time
+        </p>
       </div>
-      <div className="p-6">
-        <ScrollArea className="h-64 pr-4">
-          <div className="space-y-4">
-            {messages.map((message, index) => (
-              <div key={index} className={`flex ${message.isUser ? '' : 'justify-end'}`}>
-                <div 
-                  className={`p-3 rounded-lg max-w-[80%] ${
-                    message.isUser 
-                      ? 'bg-gray-100' 
-                      : `bg-adapteq-light-purple ${
-                          recentlyChanged && index === lastBotMessageIndex 
-                            ? 'animate-fade-in shadow-glow' 
-                            : ''
-                        }`
+      
+      <Card className={`bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200 p-4 ${className}`}>
+        <div className="p-2 bg-adapteq-navy text-white rounded-t-lg flex justify-between items-center">
+          {!showStrategyOptions ? (
+            <Button 
+              variant="ghost" 
+              onClick={toggleStrategyOptions} 
+              className="text-xs py-1 px-2 h-auto text-white hover:bg-adapteq-light-purple/20 flex items-center gap-1 animate-fade-in"
+            >
+              <Edit className="h-4 w-4 mr-1" />
+              Change Response Strategy
+            </Button>
+          ) : (
+            <ToggleGroup 
+              type="single" 
+              value={selectedStrategy} 
+              onValueChange={(value) => value && handleStrategyChange(value as ResponseStrategy)} 
+              className="flex flex-wrap justify-center gap-1 animate-fade-in"
+            >
+              {Object.entries(RESPONSE_STRATEGIES).map(([key, strategy]) => (
+                <ToggleGroupItem 
+                  key={key} 
+                  value={key}
+                  className={`text-xs py-1 px-2 h-auto text-white border border-adapteq-light-purple ${
+                    selectedStrategy === key 
+                      ? 'bg-adapteq-purple hover:bg-adapteq-dark-purple' 
+                      : 'bg-adapteq-navy hover:bg-adapteq-light-purple/20'
                   }`}
                 >
-                  <p className="text-sm">{message.content}</p>
-                </div>
-              </div>
-            ))}
-            {isTyping && (
-              <div className="flex justify-end">
-                <div className="bg-adapteq-light-purple p-3 rounded-lg">
-                  <div className="flex items-center">
-                    <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse mr-1"></div>
-                    <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse delay-100 mr-1"></div>
-                    <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse delay-200"></div>
+                  {strategy.name}
+                </ToggleGroupItem>
+              ))}
+            </ToggleGroup>
+          )}
+        </div>
+        <div className="p-6">
+          <ScrollArea className="h-64 pr-4">
+            <div className="space-y-4">
+              {messages.map((message, index) => (
+                <div key={index} className={`flex ${message.isUser ? '' : 'justify-end'}`}>
+                  <div 
+                    className={`p-3 rounded-lg max-w-[80%] ${
+                      message.isUser 
+                        ? 'bg-gray-100' 
+                        : `bg-adapteq-light-purple ${
+                            recentlyChanged && index === lastBotMessageIndex 
+                              ? 'animate-fade-in shadow-glow' 
+                              : ''
+                          }`
+                    }`}
+                  >
+                    <p className="text-sm">{message.content}</p>
                   </div>
                 </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-        </ScrollArea>
-        <form onSubmit={handleSend} className="mt-4 flex items-center space-x-2">
-          <Input
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Type your message..."
-            className="flex-1"
-          />
-          <Button 
-            type="submit"
-            size="icon"
-            className="bg-adapteq-purple hover:bg-adapteq-dark-purple"
-          >
-            <Send className="h-4 w-4" />
-          </Button>
-        </form>
-      </div>
-    </Card>
+              ))}
+              {isTyping && (
+                <div className="flex justify-end">
+                  <div className="bg-adapteq-light-purple p-3 rounded-lg">
+                    <div className="flex items-center">
+                      <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse mr-1"></div>
+                      <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse delay-100 mr-1"></div>
+                      <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse delay-200"></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+          <form onSubmit={handleSend} className="mt-4 flex items-center space-x-2">
+            <Input
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Type your message..."
+              className="flex-1"
+              disabled={hasUserSentMessage}
+            />
+            <Button 
+              type="submit"
+              size="icon"
+              className={`bg-adapteq-purple hover:bg-adapteq-dark-purple transition-opacity ${hasUserSentMessage ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={hasUserSentMessage}
+            >
+              <Send className="h-4 w-4" />
+            </Button>
+          </form>
+        </div>
+      </Card>
+    </div>
   );
 };
 
