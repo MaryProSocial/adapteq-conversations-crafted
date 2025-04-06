@@ -45,7 +45,7 @@ const HowItWorks = () => {
               </div>
               <div className="order-1 md:order-1 flex justify-center">
                 <img 
-                  src="/lovable-uploads/b5309e97-f747-4429-944f-e4002752b121.png" 
+                  src="/lovable-uploads/a15a8320-95ac-4afd-a5a5-8b9028ea5698.png" 
                   alt="Memory types visualization" 
                   className="w-auto max-h-80"
                 />
