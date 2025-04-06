@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { Search, Brain, Database, Settings, RefreshCw, BookOpen, Tv, ClipboardList } from 'lucide-react';
 import { 
@@ -120,11 +119,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="relative">
-          <Carousel 
-            className="w-full max-w-5xl mx-auto"
-            setApi={(api) => emblaApi}
-            ref={emblaRef}
-          >
+          <Carousel ref={emblaRef}>
             <CarouselContent>
               {sections.map((section, index) => (
                 <CarouselItem key={index} className="md:basis-full lg:basis-full">
@@ -165,7 +160,6 @@ const HowItWorks = () => {
                 onClick={() => {
                   if (emblaApi) {
                     emblaApi.scrollTo(index);
-                    setActiveIndex(index);
                   }
                 }}
                 aria-label={`Go to slide ${index + 1}`}
