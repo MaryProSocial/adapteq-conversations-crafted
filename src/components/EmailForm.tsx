@@ -50,7 +50,6 @@ const EmailForm = () => {
         </Button>
       </div>
       <p className="text-xs text-gray-500 mt-2">
-        We'll never spam you. We just want to help you get the answers you need.
       </p>
     </form>
   );
