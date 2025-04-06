@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "route": "/*",
+        "redirect": "https://www.adapteq.ai",
+        "statusCode": 301
+      }
+    ]
+  }
