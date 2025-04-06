@@ -35,7 +35,7 @@ interface InteractiveChatProps {
 
 const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { content: "Welcome to adapteq! I'm here to help with housing, benefits, and social services information. How can I assist you today?", isUser: false },
+    { content: "Welcome! I'm here to help with housing, benefits, and social services information. How can I assist you today?", isUser: false },
   ]);
   const [inputValue, setInputValue] = useState("I'm looking for housing assistance programs in my area.");
   const [selectedStrategy, setSelectedStrategy] = useState<ResponseStrategy>('direct');
@@ -132,7 +132,7 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
                   className={`p-3 rounded-lg max-w-[80%] relative ${
                     message.isUser 
                       ? 'bg-gray-100' 
-                      : `bg-adapteq-light-purple ${
+                      : `bg-adapteq-purple text-white ${
                           recentlyChanged && index === lastBotMessageIndex 
                             ? 'animate-fade-in shadow-glow' 
                             : ''
@@ -183,11 +183,11 @@ const InteractiveChat: React.FC<InteractiveChatProps> = ({ className }) => {
             ))}
             {isTyping && (
               <div className="flex justify-end">
-                <div className="bg-adapteq-light-purple p-3 rounded-lg">
+                <div className="bg-adapteq-purple p-3 rounded-lg text-white">
                   <div className="flex items-center">
-                    <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse mr-1"></div>
-                    <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse delay-100 mr-1"></div>
-                    <div className="h-2 w-2 bg-adapteq-purple rounded-full animate-pulse delay-200"></div>
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse mr-1"></div>
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse delay-100 mr-1"></div>
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse delay-200"></div>
                   </div>
                 </div>
               </div>

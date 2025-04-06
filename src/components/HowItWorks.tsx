@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, Brain, Database, Settings, RefreshCw, BookOpen, Tv, ClipboardList } from 'lucide-react';
 import { 
@@ -90,10 +89,6 @@ const HowItWorks = () => {
     }
   ];
 
-  const handleCarouselChange = (index: number) => {
-    setActiveIndex(index);
-  };
-
   return (
     <section id="how-it-works" className="py-20 bg-Adapteq-purple/10">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -106,7 +101,7 @@ const HowItWorks = () => {
         <div className="relative">
           <Carousel 
             className="w-full max-w-5xl mx-auto"
-            onSelect={(api) => handleCarouselChange(api.selectedScrollSnap())}
+            onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
           >
             <CarouselContent>
               {sections.map((section, index) => (
