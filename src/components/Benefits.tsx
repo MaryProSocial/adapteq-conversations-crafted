@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { 
-  HeadphonesIcon, 
-  ShieldCheck, 
-  LineChart, 
+  MessageCircleOff, 
+  ShuffleIcon, 
+  BarChart2,
   Users
 } from 'lucide-react';
 import ScenarioCircle from './ScenarioCircle';
@@ -11,17 +11,17 @@ import ScenarioCircle from './ScenarioCircle';
 const Benefits = () => {
   const benefits = [
     {
-      icon: <HeadphonesIcon size={36} className="text-Adapteq-purple" />,
+      icon: <MessageCircleOff size={36} className="text-Adapteq-purple" />,
       title: "Hard to reach, easy to lose",
       description: "Most AI chat tools fail to hold attention—responses feel generic, impersonal, and unhelpful. Users lose interest fast. We use adaptive prompting to capitalize on initial motivation and keep conversations engaging, personal, and on track."
     },
     {
-      icon: <ShieldCheck size={36} className="text-Adapteq-purple" />,
+      icon: <ShuffleIcon size={36} className="text-Adapteq-purple" />,
       title: "Inconsistent Outcomes",
       description: "If you don't understand what users are trying to do, you can't help them get the results they need. We classify intent, emotion, and perspective in real time—so the system can meet people where they are and guide them more effectively."
     },
     {
-      icon: <LineChart size={36} className="text-Adapteq-purple" />,
+      icon: <BarChart2 size={36} className="text-Adapteq-purple" />,
       title: "Wasted AI Investment",
       description: "Many teams deploy AI but don't know if it's working. Without visibility into user behavior or outcomes, it's hard to improve. We provide conversation-level reporting that shows what strategies worked, where users disengaged, and what to fix next."
     },
