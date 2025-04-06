@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -62,6 +61,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				Adapteq: {
+					blue: '#1976d2',
+					teal: '#00bcd4',
+					navy: '#0a1929',
+					grey: '#f5f7f9',
+					light: '#ffffff',
+					purple: '#6366f1',
+					'light-purple': '#e0e7ff',
+					'dark-purple': '#4338ca',
+					'light-blue': '#dbeafe'
 				},
 				adapteq: {
 					blue: '#1976d2',
