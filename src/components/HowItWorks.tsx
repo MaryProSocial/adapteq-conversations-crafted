@@ -41,7 +41,7 @@ const HowItWorks = () => {
       content: (
         <div className="order-1 md:order-2 flex justify-center">
           <img 
-            src="public/lovable-uploads/intent.svg" 
+            src="lovable-uploads/intent.svg" 
             alt="Understanding and connecting visualization" 
             className="w-auto max-h-100">
           </img>
@@ -55,7 +55,7 @@ const HowItWorks = () => {
       content: (
         <div className="order-1 md:order-1 flex justify-center">
           <img 
-            src="public/lovable-uploads/memory graphic (1).png" 
+            src="lovable-uploads/memory graphic (1).png" 
             alt="Memory types visualization" 
             className="w-auto max-h-100"
           />
@@ -104,7 +104,7 @@ const HowItWorks = () => {
       content: (
         <div className="order-1 md:order-1 flex justify-center items-center w-full">
           <img 
-            src="public/lovable-uploads/Reinforcement Loop.svg" 
+            src="lovable-uploads/Reinforcement Loop.svg" 
             alt="Reinforcement learning loop" 
             className="w-auto max-h-80"
           />
