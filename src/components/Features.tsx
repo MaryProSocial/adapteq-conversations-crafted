@@ -6,12 +6,12 @@ const Features = () => {
   const features = [
     {
       title: "Adaptive Prompting",
-      description: "Our reinforcement learning algorithms continuously improve conversational patterns based on user interactions and outcomes.",
+      description: "Our reinforcement learning algorithms continuously improve conversational patterns based on user interactions, with built-in memory to personalize each experience.",
       icon: <BrainCircuit size={48} className="text-Adapteq-blue" />,
       details: [
         "Dynamic prompt optimization",
-        "Contextual understanding",
-        "Personalized interactions",
+        "Contextual memory storage",
+        "Personalized user experiences",
       ]
     },
     {
