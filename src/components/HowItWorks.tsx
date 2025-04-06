@@ -37,26 +37,27 @@ const HowItWorks = () => {
     {
       title: "Understands and Connects",
       description: "Analyzes user intent, emotion, and perspective to foster a deeper connection in conversation.",
+      vertical: true,
       content: (
         <div className="order-1 md:order-2 flex justify-center">
-          <div className="relative bg-Adapteq-light-purple rounded-full p-12 w-64 h-64 flex items-center justify-center">
-            <Search className="h-24 w-24 text-Adapteq-purple absolute" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-40 h-40 border-4 border-Adapteq-light-blue rounded-full opacity-30"></div>
-            </div>
-          </div>
+          <img 
+            src="src/assets/images/intent.svg" 
+            alt="Understanding and connecting visualization" 
+            className="w-auto max-h-100">
+          </img>
         </div>
       )
     },
     {
       title: "Remembers What Matters",
       description: "Utilizes episodic, semantic, and procedural memory to retain important information and context.",
+      vertical: false,
       content: (
         <div className="order-1 md:order-1 flex justify-center">
           <img 
-            src="/lovable-uploads/a15a8320-95ac-4afd-a5a5-8b9028ea5698.png" 
+            src="src/assets/images/memory graphic (1).png" 
             alt="Memory types visualization" 
-            className="w-auto max-h-80"
+            className="w-auto max-h-100"
           />
         </div>
       )
@@ -64,6 +65,7 @@ const HowItWorks = () => {
     {
       title: "Responds Intelligently",
       description: "Applies the right prompting and model strategy based on the situation, reasoning thoroughly before replying.",
+      vertical: false,
       content: (
         <div className="order-1 md:order-2 flex justify-center">
           <div className="bg-Adapteq-light-purple rounded-xl p-6 w-72">
@@ -98,12 +100,13 @@ const HowItWorks = () => {
     {
       title: "Learns What Works",
       description: "Embraces reinforcement learning to assess the quality of its responses and improve outcomes over time.",
+      vertical: true,
       content: (
         <div className="order-1 md:order-1 flex justify-center items-center w-full">
           <img 
-            src="/lovable-uploads/6ba5a951-0727-47ff-b85d-66d778714ee5.png" 
+            src="src/assets/images/Reinforcement Loop.svg" 
             alt="Reinforcement learning loop" 
-            className="w-full max-w-md h-auto"
+            className="w-auto max-h-80"
           />
         </div>
       )
@@ -122,23 +125,37 @@ const HowItWorks = () => {
         <div className="relative w-full max-w-5xl mx-auto">
           <div ref={emblaRef} className="overflow-hidden">
             <div className="flex">
-              {sections.map((section, index) => (
+            {sections.map((section, index) => (
                 <div key={index} className="min-w-0 shrink-0 grow-0 basis-full pl-4">
                   <div className="bg-white rounded-xl shadow-md p-6 md:p-8 h-full">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                      <div className={cn("flex flex-col justify-center", index % 2 === 0 ? "order-2 md:order-1" : "order-2")}>
-                        <h3 className="text-2xl font-bold text-Adapteq-navy mb-4">{section.title}</h3>
-                        <p className="text-lg text-gray-700">
-                          {section.description}
-                        </p>
+                    {section.vertical ? (
+                      // Vertical: two rows in one column.
+                      <div className="grid grid-cols-1 gap-8">
+                        <div className="flex flex-col justify-center">
+                          <h3 className="text-2xl font-bold text-Adapteq-navy mb-4">{section.title}</h3>
+                          <p className="text-lg text-gray-700">{section.description}</p>
+                        </div>
+                        <div>
+                          {section.content}
+                        </div>
                       </div>
-                      <div className={cn(index % 2 === 0 ? "order-1 md:order-2" : "order-1")}>
-                        {section.content}
+                    ) : (
+                      // Horizontal: one row with two columns.
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div className={cn("flex flex-col justify-center", index % 2 === 0 ? "order-2 md:order-1" : "order-2")}>
+                          <h3 className="text-2xl font-bold text-Adapteq-navy mb-4">{section.title}</h3>
+                          <p className="text-lg text-gray-700">{section.description}</p>
+                        </div>
+                        <div className={cn(index % 2 === 0 ? "order-1 md:order-2" : "order-1")}>
+                          {section.content}
+                        </div>
                       </div>
-                    </div>
+                    )
+                    }
                   </div>
                 </div>
-              ))}
+))}
+
             </div>
           </div>
 
