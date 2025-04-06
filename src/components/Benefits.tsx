@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { 
-  TrendingUp, 
-  Shield, 
-  Users, 
-  Clock,
+  TrendingDown, 
+  ShieldAlert, 
+  DollarSign, 
+  UserX,
   Home,
   Briefcase,
   MessageSquare,
@@ -14,22 +14,22 @@ import {
 const Benefits = () => {
   const benefits = [
     {
-      icon: <TrendingUp size={36} className="text-Adapteq-purple" />,
+      icon: <TrendingDown size={36} className="text-Adapteq-purple" />,
       title: "Hard to reach, easy to lose",
       description: "Most AI chat tools fail to hold attention—responses feel generic, impersonal, and unhelpful. Users lose interest fast. We use adaptive prompting to capitalize on initial motivation and keep conversations engaging, personal, and on track."
     },
     {
-      icon: <Shield size={36} className="text-Adapteq-purple" />,
+      icon: <ShieldAlert size={36} className="text-Adapteq-purple" />,
       title: "Inconsistent Outcomes",
       description: "If you don't understand what users are trying to do, you can't help them get the results they need. We classify intent, emotion, and perspective in real time—so the system can meet people where they are and guide them more effectively."
     },
     {
-      icon: <Users size={36} className="text-Adapteq-purple" />,
+      icon: <DollarSign size={36} className="text-Adapteq-purple" />,
       title: "Wasted AI Investment",
       description: "Many teams deploy AI but don't know if it's working. Without visibility into user behavior or outcomes, it's hard to improve. We provide conversation-level reporting that shows what strategies worked, where users disengaged, and what to fix next."
     },
     {
-      icon: <Clock size={36} className="text-Adapteq-purple" />,
+      icon: <UserX size={36} className="text-Adapteq-purple" />,
       title: "Limited Access at Scale",
       description: "Even with automation, underserved users often slip through. We help you scale support with empathy while keeping your staff in the loop when it matters most."
     }
@@ -38,14 +38,17 @@ const Benefits = () => {
   return (
     <section id="benefits" className="py-16 md:py-24 bg-Adapteq-grey">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row gap-12 items-center">
+        <div className="text-center mb-12">
+          <h2 className="heading-2 mb-6">
+            It's time to get real about <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">implementing AI</span>
+          </h2>
+          <p className="body-text max-w-3xl mx-auto">
+            Stop building generic chatbots. Your users need a personalized, engaging and adaptive agent that can help them reach real outcomes.
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="md:w-1/2">
-            <h2 className="heading-2 mb-6">
-              It's time to get real about <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">implementing AI</span>
-            </h2>
-            <p className="body-text mb-8">
-              Stop building generic chatbots. Your users need a personalized, engaging and adaptive agent that can help them reach real outcomes.
-            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-md">
