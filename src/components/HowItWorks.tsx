@@ -44,31 +44,11 @@ const HowItWorks = () => {
                 </p>
               </div>
               <div className="order-1 md:order-1 flex justify-center">
-                <div className="relative bg-adapteq-light-blue p-8 rounded-xl w-72 h-72">
-                  <div className="flex flex-col gap-4 h-full">
-                    <div className="bg-white p-4 rounded-lg flex items-center gap-3">
-                      <BookOpen className="h-8 w-8 text-adapteq-purple" />
-                      <div>
-                        <h4 className="font-bold">Semantic Memory</h4>
-                        <p className="text-sm text-gray-600">Facts & Knowledge</p>
-                      </div>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg flex items-center gap-3">
-                      <Tv className="h-8 w-8 text-adapteq-purple" />
-                      <div>
-                        <h4 className="font-bold">Episodic Memory</h4>
-                        <p className="text-sm text-gray-600">Conversation History</p>
-                      </div>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg flex items-center gap-3">
-                      <ClipboardList className="h-8 w-8 text-adapteq-purple" />
-                      <div>
-                        <h4 className="font-bold">Procedural Memory</h4>
-                        <p className="text-sm text-gray-600">Response Strategies</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="/lovable-uploads/b5309e97-f747-4429-944f-e4002752b121.png" 
+                  alt="Memory types visualization" 
+                  className="w-auto max-h-80"
+                />
               </div>
             </div>
           </div>
@@ -113,44 +93,21 @@ const HowItWorks = () => {
             </div>
           </div>
 
-          {/* Section 4: Improves with Use */}
+          {/* Section 4: Learns What Works (previously "Improves with Use") */}
           <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="order-1 md:order-2">
-                <h3 className="text-2xl font-bold text-adapteq-navy mb-4">Improves with Use</h3>
+                <h3 className="text-2xl font-bold text-adapteq-navy mb-4">Learns What Works</h3>
                 <p className="text-lg text-gray-700">
                   Embraces reinforcement learning to assess the quality of its responses and improve outcomes over time.
                 </p>
               </div>
               <div className="order-1 md:order-1 flex justify-center">
-                <div className="relative bg-adapteq-light-blue rounded-xl p-8 w-72 h-72 flex items-center justify-center">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-56 h-56 border-4 border-adapteq-purple rounded-full opacity-40"></div>
-                  </div>
-                  
-                  <div className="grid grid-cols-3 gap-6 relative z-10">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="mb-2 bg-white p-3 rounded-full shadow-md">
-                        <Search className="h-6 w-6 text-adapteq-purple" />
-                      </div>
-                      <p className="text-xs font-medium">Detect Patterns</p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center text-center">
-                      <div className="mb-2 bg-white p-3 rounded-full shadow-md">
-                        <RefreshCw className="h-6 w-6 text-adapteq-purple" />
-                      </div>
-                      <p className="text-xs font-medium">Train Models</p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center text-center">
-                      <div className="mb-2 bg-white p-3 rounded-full shadow-md">
-                        <Brain className="h-6 w-6 text-adapteq-purple" />
-                      </div>
-                      <p className="text-xs font-medium">Improve Results</p>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="/lovable-uploads/6ba5a951-0727-47ff-b85d-66d778714ee5.png" 
+                  alt="Reinforcement learning loop" 
+                  className="w-auto max-h-72"
+                />
               </div>
             </div>
           </div>
