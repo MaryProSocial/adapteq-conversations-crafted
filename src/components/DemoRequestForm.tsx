@@ -26,18 +26,21 @@ const DemoRequestForm = ({ onSuccess }: { onSuccess?: () => void }) => {
     setIsSubmitting(true);
     
     try {
-      // In a real implementation, this would send the data to a server
-      // For now we'll simulate a successful submission
+      // Create a mailto link with the form data
+      const subject = "Demo Request from Website";
+      const body = `Project Details: ${data.project}\n\nContact Email: ${data.email}`;
+      const mailtoUrl = `mailto:demo@adapteq.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open the mailto link in a new window/tab
+      window.open(mailtoUrl, '_blank');
+      
       console.log("Form submitted:", data);
       
-      // Simulate sending email to demo@adapteq.ai
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast.success("Request submitted successfully!");
+      toast.success("Email client opened. If it didn't open automatically, please email demo@adapteq.ai directly.");
       form.reset();
       if (onSuccess) onSuccess();
     } catch (error) {
-      toast.error("Failed to submit request. Please try again.");
+      toast.error("Failed to open email client. Please email demo@adapteq.ai directly.");
       console.error("Form submission error:", error);
     } finally {
       setIsSubmitting(false);
@@ -55,7 +58,7 @@ const DemoRequestForm = ({ onSuccess }: { onSuccess?: () => void }) => {
               <FormControl>
                 <Textarea
                   placeholder="I need help adapting my chatbot for..."
-                  className="resize-none min-h-[120px]"
+                  className="resize-none min-h-[120px] text-black"
                   {...field}
                 />
               </FormControl>
@@ -70,7 +73,7 @@ const DemoRequestForm = ({ onSuccess }: { onSuccess?: () => void }) => {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Your email address" type="email" {...field} />
+                <Input placeholder="Your email address" type="email" className="text-black" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
