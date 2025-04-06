@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
+import DemoRequestSheet from './DemoRequestSheet';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,25 +13,25 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center">
               <span className="text-2xl font-bold">
-                <span className="text-adapteq-navy">Adapt</span>
-                <span className="text-adapteq-purple/70">eq</span>
+                <span className="text-Adapteq-navy">Adapt</span>
+                <span className="text-Adapteq-purple/70">eq</span>
               </span>
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-adapteq-navy hover:text-adapteq-blue transition-colors">Features</a>
-            <a href="#benefits" className="text-adapteq-navy hover:text-adapteq-blue transition-colors">Benefits</a>
-            <a href="#testimonials" className="text-adapteq-navy hover:text-adapteq-blue transition-colors">Testimonials</a>
-            <Button className="bg-adapteq-blue hover:bg-blue-700">Request Demo</Button>
+            <a href="#features" className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors">Features</a>
+            <a href="#benefits" className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors">Benefits</a>
+            <a href="#how-it-works" className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors">How It Works</a>
+            <DemoRequestSheet />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-adapteq-navy focus:outline-none"
+              className="text-Adapteq-navy focus:outline-none"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -44,26 +44,26 @@ const Navbar = () => {
             <div className="flex flex-col space-y-4">
               <a 
                 href="#features" 
-                className="text-adapteq-navy hover:text-adapteq-blue transition-colors"
+                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Features
               </a>
               <a 
                 href="#benefits" 
-                className="text-adapteq-navy hover:text-adapteq-blue transition-colors"
+                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Benefits
               </a>
               <a 
-                href="#testimonials" 
-                className="text-adapteq-navy hover:text-adapteq-blue transition-colors"
+                href="#how-it-works" 
+                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Testimonials
+                How It Works
               </a>
-              <Button className="bg-adapteq-blue hover:bg-blue-700 w-full">Request Demo</Button>
+              <DemoRequestSheet buttonClassName="bg-Adapteq-blue hover:bg-blue-700 w-full" />
             </div>
           </div>
         )}

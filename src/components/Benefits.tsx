@@ -14,29 +14,29 @@ import {
 const Benefits = () => {
   const benefits = [
     {
-      icon: <TrendingUp size={36} className="text-adapteq-purple" />,
+      icon: <TrendingUp size={36} className="text-Adapteq-purple" />,
       title: "Higher Engagement",
       description: "Conversations adapt in real time to the individual—responding with empathy, recognizing emotional cues, and building trust over time."
     },
     {
-      icon: <Shield size={36} className="text-adapteq-purple" />,
+      icon: <Shield size={36} className="text-Adapteq-purple" />,
       title: "Better Outcomes",
       description: "The system collects the right information upfront, understands what's being asked, and moves the conversation forward efficiently—no repetition needed."
     },
     {
-      icon: <Users size={36} className="text-adapteq-purple" />,
+      icon: <Users size={36} className="text-Adapteq-purple" />,
       title: "Flexible Support",
       description: "Works 24/7 across languages, literacy levels, and digital skills—giving every client an experience that feels personal, no matter the volume."
     },
     {
-      icon: <Clock size={36} className="text-adapteq-purple" />,
+      icon: <Clock size={36} className="text-Adapteq-purple" />,
       title: "Staff Empowerment",
       description: "Handles routine interactions on its own, while giving staff a clear picture of context, history, and priorities when it's time to step in."
     }
   ];
 
   return (
-    <section id="benefits" className="py-16 md:py-24 bg-adapteq-grey">
+    <section id="benefits" className="py-16 md:py-24 bg-Adapteq-grey">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
@@ -70,7 +70,7 @@ const Benefits = () => {
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <Home className="h-5 w-5 text-adapteq-purple" />
+                      <Home className="h-5 w-5 text-Adapteq-purple" />
                     </div>
                     <div className="ml-4">
                       <p className="font-medium">Human Services</p>
@@ -80,7 +80,7 @@ const Benefits = () => {
                   
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <Briefcase className="h-5 w-5 text-adapteq-purple" />
+                      <Briefcase className="h-5 w-5 text-Adapteq-purple" />
                     </div>
                     <div className="ml-4">
                       <p className="font-medium">Workplace Support</p>
@@ -90,7 +90,7 @@ const Benefits = () => {
                   
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <MessageSquare className="h-5 w-5 text-adapteq-purple" />
+                      <MessageSquare className="h-5 w-5 text-Adapteq-purple" />
                     </div>
                     <div className="ml-4">
                       <p className="font-medium">Interview Coaching</p>
@@ -100,7 +100,7 @@ const Benefits = () => {
                   
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <BookOpen className="h-5 w-5 text-adapteq-purple" />
+                      <BookOpen className="h-5 w-5 text-Adapteq-purple" />
                     </div>
                     <div className="ml-4">
                       <p className="font-medium">Student Advising</p>
@@ -109,7 +109,7 @@ const Benefits = () => {
                   </div>
                 </div>
                 
-                <div className="mt-8 bg-adapteq-grey/50 p-4 rounded-lg">
+                <div className="mt-8 bg-Adapteq-grey/50 p-4 rounded-lg">
                   <blockquote className="italic text-gray-700">
                     "It's like having a caseworker who never forgets a conversation, always knows the next best step, and never burns out."
                   </blockquote>
