@@ -67,13 +67,6 @@ const Benefits = () => {
                 </div>
                 
                 <ScenarioCircle />
-                
-                <div className="mt-8 bg-Adapteq-grey/50 p-4 rounded-lg">
-                  <blockquote className="italic text-gray-700">
-                    "It's like having a caseworker who never forgets a conversation, always knows the next best step, and never burns out."
-                  </blockquote>
-                  <p className="mt-2 text-sm font-medium">— Early Design Partner, Public Services Innovation Team</p>
-                </div>
               </div>
             </div>
           </div>
