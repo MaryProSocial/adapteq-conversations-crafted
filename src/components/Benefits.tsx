@@ -10,6 +10,7 @@ import {
   MessageSquare,
   BookOpen
 } from 'lucide-react';
+import ScenarioCircle from './ScenarioCircle';
 
 const Benefits = () => {
   const benefits = [
@@ -69,47 +70,7 @@ const Benefits = () => {
                   <div className="h-1 w-16 bg-gradient-to-r from-blue-800 to-purple-400"></div>
                 </div>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1">
-                      <Home className="h-5 w-5 text-Adapteq-purple" />
-                    </div>
-                    <div className="ml-4">
-                      <p className="font-medium">Human Services</p>
-                      <p className="text-sm text-gray-600">A tenant reaches out to their local housing agency unsure if they qualify for support. The system listens for key details, offers clarification in plain language, and helps them take the next step—without needing to wait in a queue or repeat their story.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1">
-                      <Briefcase className="h-5 w-5 text-Adapteq-purple" />
-                    </div>
-                    <div className="ml-4">
-                      <p className="font-medium">Workplace Support</p>
-                      <p className="text-sm text-gray-600">An employee has a sensitive question about accommodations. Instead of browsing a policy manual or sending an awkward email, they talk to the AI—receiving thoughtful, confidential guidance and a clear path toward resolution.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1">
-                      <MessageSquare className="h-5 w-5 text-Adapteq-purple" />
-                    </div>
-                    <div className="ml-4">
-                      <p className="font-medium">Interview Coaching</p>
-                      <p className="text-sm text-gray-600">A job seeker practices answering tough behavioral questions. The AI plays the role of interviewer, gives real-time feedback, and adjusts based on confidence or hesitation—building both skill and self-trust through conversation.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1">
-                      <BookOpen className="h-5 w-5 text-Adapteq-purple" />
-                    </div>
-                    <div className="ml-4">
-                      <p className="font-medium">Student Advising</p>
-                      <p className="text-sm text-gray-600">A returning student isn't sure how to re-enroll. The system recalls past goals, picks up where they left off, and gently guides them through the process—surfacing reminders, offering encouragement, and connecting them to a human when it counts.</p>
-                    </div>
-                  </div>
-                </div>
+                <ScenarioCircle />
                 
                 <div className="mt-8 bg-Adapteq-grey/50 p-4 rounded-lg">
                   <blockquote className="italic text-gray-700">
