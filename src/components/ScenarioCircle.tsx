@@ -48,25 +48,25 @@ const ScenarioCircle = () => {
   };
 
   return (
-    <div className="relative w-full mx-auto h-[400px]">
+    <div className="relative w-full mx-auto h-[500px]">
       {/* Circular rotating background */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-80 h-80 rounded-full border-2 border-dashed border-Adapteq-purple/30 animate-spin-slow"></div>
-        <div className="absolute w-64 h-64 rounded-full border border-Adapteq-purple/20"></div>
+        <div className="w-[400px] h-[400px] rounded-full border-2 border-dashed border-Adapteq-purple/30 animate-spin-slow"></div>
+        <div className="absolute w-80 h-80 rounded-full border border-Adapteq-purple/20"></div>
       </div>
       
       {/* Scenario buttons positioned in a circle */}
       {scenarios.map((scenario, index) => {
         // Calculate position around the circle
         const angle = (index * Math.PI / 2) - Math.PI / 4; // Distribute evenly
-        const x = Math.cos(angle) * 135; // Increased radius
-        const y = Math.sin(angle) * 135; // Increased radius
+        const x = Math.cos(angle) * 170; // Increased radius by 25%
+        const y = Math.sin(angle) * 170; // Increased radius by 25%
         
         return (
           <button
             key={index}
             className={cn(
-              "absolute transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full", // Increased size
+              "absolute transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full", // Increased size
               "flex flex-col items-center justify-center transition-all duration-300",
               "bg-white shadow-md hover:shadow-lg hover:scale-110 z-10",
               activeScenario === index ? "scale-110 bg-Adapteq-purple/10" : ""
@@ -86,8 +86,8 @@ const ScenarioCircle = () => {
       })}
       
       {/* Center circle with title */}
-      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gradient-to-r from-blue-800 to-purple-400 flex items-center justify-center p-2">
-        <span className="text-white text-sm text-center font-semibold">Real Scenarios, Real Impact</span>
+      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-r from-blue-800 to-purple-400 flex items-center justify-center p-2">
+        <span className="text-white text-base text-center font-semibold">Real Scenarios, Real Impact</span>
       </div>
       
       {/* Description flyout */}
