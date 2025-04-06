@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, Brain, Database, Settings, RefreshCw, BookOpen, Tv, ClipboardList } from 'lucide-react';
 import { 
@@ -105,11 +104,6 @@ const HowItWorks = () => {
             opts={{
               loop: true,
             }}
-            onSelect={(api) => {
-              if (api) {
-                setActiveIndex(api.selectedScrollSnap());
-              }
-            }}
           >
             <CarouselContent>
               {sections.map((section, index) => (
@@ -152,6 +146,7 @@ const HowItWorks = () => {
                     const emblaApi = (carousel as any).__emblaApi;
                     if (emblaApi) {
                       emblaApi.scrollTo(index);
+                      setActiveIndex(index);
                     }
                   }
                 }}
