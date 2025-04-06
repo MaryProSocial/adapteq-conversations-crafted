@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="col-span-1">
-            <h3 className="text-2xl font-bold mb-4 gradient-text">Adapteq</h3>
+            <h3 className="text-2xl font-bold mb-4 text-white">Adapteq</h3>
             <p className="text-gray-300 mb-6">
               Transforming human services with cognitive conversations powered by AI.
             </p>
