@@ -16,14 +16,16 @@ const EmailForm = () => {
     setIsSubmitting(true);
     
     try {
-      // In a real implementation, this would send the email to demo@adapteq.ai
-      console.log("Email submitted:", email);
-      await new Promise(resolve => setTimeout(resolve, 800));
+      // Send the email to the demo address
+      const mailtoUrl = `mailto:demo@adapteq.ai?subject=Demo Request&body=I would like to request a demo. My email is: ${email}`;
+      window.open(mailtoUrl, '_blank');
       
-      toast.success("Request sent successfully!");
+      console.log("Email submitted:", email);
+      
+      toast.success("Email link opened. If it didn't open automatically, please email demo@adapteq.ai directly.");
       setEmail('');
     } catch (error) {
-      toast.error("Failed to send request. Please try again.");
+      toast.error("Failed to open email client. Please email demo@adapteq.ai directly.");
     } finally {
       setIsSubmitting(false);
     }
