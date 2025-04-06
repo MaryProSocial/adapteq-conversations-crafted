@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search, Brain, Database, Settings, RefreshCw, BookOpen, Tv, ClipboardList } from 'lucide-react';
 import { 
@@ -101,7 +102,14 @@ const HowItWorks = () => {
         <div className="relative">
           <Carousel 
             className="w-full max-w-5xl mx-auto"
-            onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
+            opts={{
+              loop: true,
+            }}
+            onSelect={(api) => {
+              if (api) {
+                setActiveIndex(api.selectedScrollSnap());
+              }
+            }}
           >
             <CarouselContent>
               {sections.map((section, index) => (
