@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import { Search, Brain, Database, Settings, RefreshCw, BookOpen, Tv, ClipboardList } from 'lucide-react';
 import { 
   Carousel, 
@@ -8,9 +9,29 @@ import {
   CarouselPrevious 
 } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
+import useEmblaCarousel from 'embla-carousel-react';
 
 const HowItWorks = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+  // Update active index when carousel slides
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setActiveIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    
+    // Add listeners for carousel events
+    emblaApi.on('select', onSelect);
+    
+    // Clean up
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   const sections = [
     {
@@ -101,9 +122,8 @@ const HowItWorks = () => {
         <div className="relative">
           <Carousel 
             className="w-full max-w-5xl mx-auto"
-            opts={{
-              loop: true,
-            }}
+            setApi={(api) => emblaApi}
+            ref={emblaRef}
           >
             <CarouselContent>
               {sections.map((section, index) => (
@@ -137,17 +157,15 @@ const HowItWorks = () => {
             {sections.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  activeIndex === index ? "bg-Adapteq-purple w-6" : "bg-gray-300"
+                className={`h-3 rounded-full transition-all ${
+                  activeIndex === index 
+                    ? "bg-Adapteq-purple w-6" 
+                    : "bg-gray-300 w-3 hover:bg-gray-400"
                 }`}
                 onClick={() => {
-                  const carousel = document.querySelector('[aria-roledescription="carousel"]');
-                  if (carousel) {
-                    const emblaApi = (carousel as any).__emblaApi;
-                    if (emblaApi) {
-                      emblaApi.scrollTo(index);
-                      setActiveIndex(index);
-                    }
+                  if (emblaApi) {
+                    emblaApi.scrollTo(index);
+                    setActiveIndex(index);
                   }
                 }}
                 aria-label={`Go to slide ${index + 1}`}
