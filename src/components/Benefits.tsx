@@ -15,23 +15,23 @@ const Benefits = () => {
   const benefits = [
     {
       icon: <TrendingUp size={36} className="text-Adapteq-purple" />,
-      title: "Higher Engagement",
-      description: "Conversations adapt in real time to the individual—responding with empathy, recognizing emotional cues, and building trust over time."
+      title: "Hard to reach, easy to lose",
+      description: "Most AI chat tools fail to hold attention—responses feel generic, impersonal, and unhelpful. Users lose interest fast. We use adaptive prompting to capitalize on initial motivation and keep conversations engaging, personal, and on track."
     },
     {
       icon: <Shield size={36} className="text-Adapteq-purple" />,
-      title: "Better Outcomes",
-      description: "The system collects the right information upfront, understands what's being asked, and moves the conversation forward efficiently—no repetition needed."
+      title: "Inconsistent Outcomes",
+      description: "If you don't understand what users are trying to do, you can't help them get the results they need. We classify intent, emotion, and perspective in real time—so the system can meet people where they are and guide them more effectively."
     },
     {
       icon: <Users size={36} className="text-Adapteq-purple" />,
-      title: "Flexible Support",
-      description: "Works 24/7 across languages, literacy levels, and digital skills—giving every client an experience that feels personal, no matter the volume."
+      title: "Wasted AI Investment",
+      description: "Many teams deploy AI but don't know if it's working. Without visibility into user behavior or outcomes, it's hard to improve. We provide conversation-level reporting that shows what strategies worked, where users disengaged, and what to fix next."
     },
     {
       icon: <Clock size={36} className="text-Adapteq-purple" />,
-      title: "Staff Empowerment",
-      description: "Handles routine interactions on its own, while giving staff a clear picture of context, history, and priorities when it's time to step in."
+      title: "Limited Access at Scale",
+      description: "Even with automation, underserved users often slip through. We help you scale support with empathy while keeping your staff in the loop when it matters most."
     }
   ];
 
@@ -41,11 +41,10 @@ const Benefits = () => {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
             <h2 className="heading-2 mb-6">
-              Why Choose <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">ADAPTEQ</span>
+              It's time to get real about <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">implementing AI</span>
             </h2>
             <p className="body-text mb-8">
-              Our system is designed to drive conversational outcomes in systems where connections matter, 
-              with adaptive, memory-aware AI.
+              Stop building generic chatbots. Your users need a personalized, engaging and adaptive agent that can help them reach real outcomes.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
@@ -63,7 +62,7 @@ const Benefits = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-800 to-purple-400 rounded-lg blur opacity-30"></div>
               <div className="relative bg-white rounded-lg overflow-hidden shadow-xl p-6">
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-2">Imagine the Difference</h3>
+                  <h3 className="text-xl font-semibold mb-2">Real Scenarios, Real Impact</h3>
                   <div className="h-1 w-16 bg-gradient-to-r from-blue-800 to-purple-400"></div>
                 </div>
                 
