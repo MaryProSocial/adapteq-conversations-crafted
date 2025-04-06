@@ -102,11 +102,11 @@ const HowItWorks = () => {
                   Embraces reinforcement learning to assess the quality of its responses and improve outcomes over time.
                 </p>
               </div>
-              <div className="order-1 md:order-1 flex justify-center">
+              <div className="order-1 md:order-1 flex justify-center items-center w-full">
                 <img 
                   src="/lovable-uploads/6ba5a951-0727-47ff-b85d-66d778714ee5.png" 
                   alt="Reinforcement learning loop" 
-                  className="w-auto max-h-72"
+                  className="w-full max-w-md h-auto"
                 />
               </div>
             </div>
