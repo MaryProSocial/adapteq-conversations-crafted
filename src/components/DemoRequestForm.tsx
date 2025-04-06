@@ -55,7 +55,7 @@ const DemoRequestForm = ({ onSuccess }: { onSuccess?: () => void }) => {
               <FormControl>
                 <Textarea
                   placeholder="I need help adapting my chatbot for..."
-                  className="resize-none min-h-[120px]"
+                  className="resize-none min-h-[120px] text-black"
                   {...field}
                 />
               </FormControl>
@@ -70,7 +70,7 @@ const DemoRequestForm = ({ onSuccess }: { onSuccess?: () => void }) => {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Your email address" type="email" {...field} />
+                <Input placeholder="Your email address" type="email" className="text-black" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
