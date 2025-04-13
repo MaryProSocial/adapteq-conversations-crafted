@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 const EmailForm = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +23,10 @@ const EmailForm = () => {
       setEmail('');
       setIsSubmitting(false);
     }, 1000);
+  };
+
+  const handleTryFree = () => {
+    navigate('/signup');
   };
 
   return (
@@ -39,11 +45,11 @@ const EmailForm = () => {
           className="flex-grow"
         />
         <Button 
-          type="submit" 
-          disabled={isSubmitting}
+          type="button" 
+          onClick={handleTryFree}
           className="bg-Adapteq-blue hover:bg-blue-700 sm:whitespace-nowrap"
         >
-          {isSubmitting ? "Submitting..." : "Get Demo"}
+          Try It Free
         </Button>
       </form>
     </div>
@@ -51,3 +57,4 @@ const EmailForm = () => {
 };
 
 export default EmailForm;
+
