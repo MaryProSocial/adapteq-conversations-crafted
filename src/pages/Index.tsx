@@ -15,8 +15,8 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <Hero />
-      <Separator className="my-8 container mx-auto" />
       <ApiService />
+      <Separator className="my-8 container mx-auto" />
       <Features />
       <Benefits />
       <HowItWorks />
@@ -27,4 +27,3 @@ const Index = () => {
 };
 
 export default Index;
-
