@@ -3,7 +3,6 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ApiService from '@/components/ApiService';
-import { Separator } from '@/components/ui/separator';
 import Features from '@/components/Features';
 import Benefits from '@/components/Benefits';
 import HowItWorks from '@/components/HowItWorks';
@@ -16,7 +15,6 @@ const Index = () => {
       <Navbar />
       <Hero />
       <ApiService />
-      <Separator className="my-8 container mx-auto" />
       <Features />
       <Benefits />
       <HowItWorks />

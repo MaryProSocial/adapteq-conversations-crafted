@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Code, Cpu, Database, Server, ArrowRight, BookOpen, Link } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,7 +7,7 @@ const ApiService = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="api-service" className="py-20 bg-white">
+    <section id="api-service" className="py-20 bg-Adapteq-grey">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="heading-2 mb-4">
