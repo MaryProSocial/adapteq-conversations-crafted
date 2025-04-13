@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Send, Brain, SmilePlus, MessageSquareText, Heart } from 'lucide-react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 type ChatMessage = {
   content: string;
@@ -14,14 +14,14 @@ type ChatMessage = {
 type Classification = {
   intent: string;
   emotion: string;
-  urgency: string;
+  depth: string;
   topic: string;
 };
 
 const CLASSIFICATIONS = {
   intent: ["Information Seeking", "Assistance Request", "Complaint", "General Inquiry"],
   emotion: ["Neutral", "Concerned", "Frustrated", "Hopeful"],
-  urgency: ["Low", "Medium", "High", "Critical"],
+  depth: ["1 - Basic", "2 - Applied", "3 - Analytical", "4 - Evaluative", "5 - Creative"],
   topic: ["Housing", "Healthcare", "Financial", "Employment"]
 };
 
@@ -72,9 +72,11 @@ const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
           inputValue.toLowerCase().includes('frustrated') ? 
             "Frustrated" : 
             "Neutral",
-        urgency: inputValue.toLowerCase().includes('urgent') || inputValue.toLowerCase().includes('emergency') ? 
-          "High" : 
-          "Medium",
+        depth: inputValue.toLowerCase().includes('situation') && inputValue.toLowerCase().includes('options') ? 
+          "3 - Analytical" : 
+          inputValue.toLowerCase().includes('need help') ? 
+            "2 - Applied" : 
+            "1 - Basic",
         topic: inputValue.toLowerCase().includes('housing') ? 
           "Housing" : 
           inputValue.toLowerCase().includes('health') ? 
@@ -101,7 +103,7 @@ const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
       <div className="text-left">
         <h3 className="text-xl font-semibold text-adapteq-navy">Understand and Connect</h3>
         <p className="text-sm text-gray-600">
-          Apply intelligence to every user chat
+          Apply intelligence to every user chat with lightweight classification models that run instantly, no expensive LLM calls needed
         </p>
       </div>
       
@@ -141,8 +143,8 @@ const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
                         </div>
                         <div className="flex items-center space-x-1">
                           <Brain size={12} className="text-adapteq-purple" />
-                          <span className="text-xs text-gray-600">Urgency:</span>
-                          <span className="text-xs font-medium">{classification.urgency}</span>
+                          <span className="text-xs text-gray-600">Depth:</span>
+                          <span className="text-xs font-medium">{classification.depth}</span>
                         </div>
                       </div>
                     </div>
@@ -163,11 +165,11 @@ const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
           
           {showInputArea && (
             <form onSubmit={handleSend} className="mt-4 flex items-center space-x-2">
-              <Input
+              <Textarea
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1"
+                className="flex-1 min-h-[60px] resize-none"
                 disabled={hasUserSentMessage}
               />
               <Button 
