@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { login, getCurrentUser } from '@/utils/authService';
 import { Button } from '@/components/ui/button';
@@ -7,7 +6,7 @@ import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Mail, Microsoft, MailCheck } from 'lucide-react';
+import { Mail, MailCheck } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 const SignUp = () => {
@@ -19,7 +18,6 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is already signed in
     const currentUser = getCurrentUser();
     if (currentUser) {
       setUser(currentUser);
@@ -31,7 +29,6 @@ const SignUp = () => {
     setIsLoading(true);
     
     try {
-      // If email sign-in is selected, show the email form instead of immediate authentication
       if (provider === 'email' && !showEmailForm) {
         setShowEmailForm(true);
         setIsLoading(false);
@@ -61,10 +58,7 @@ const SignUp = () => {
     
     setIsLoading(true);
     try {
-      // In a real implementation, this would handle the email sign-in flow
-      // For now, we'll simulate a successful sign-in
       toast.success("Check your email for a verification link");
-      // This is where you would typically initiate the B2C email flow
     } catch (error) {
       toast.error("Failed to send verification email. Please try again.");
       console.error("Email verification error:", error);
@@ -143,7 +137,12 @@ const SignUp = () => {
                   className="w-full bg-[#2f2f2f] hover:bg-[#1f1f1f] text-white flex items-center justify-center"
                   disabled={isLoading && activeProvider === 'microsoft'}
                 >
-                  <Microsoft className="mr-2 h-4 w-4" />
+                  <svg className="mr-2 h-4 w-4" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#f3f3f3" d="M0 0h11v11H0z"/>
+                    <path fill="#f35325" d="M12 0h11v11H12z"/>
+                    <path fill="#81bc06" d="M0 12h11v11H0z"/>
+                    <path fill="#05a6f0" d="M12 12h11v11H12z"/>
+                  </svg>
                   {isLoading && activeProvider === 'microsoft' ? "Signing in..." : "Sign in with Microsoft"}
                 </Button>
                 
@@ -152,7 +151,6 @@ const SignUp = () => {
                   className="w-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 flex items-center justify-center"
                   disabled={isLoading && activeProvider === 'google'}
                 >
-                  {/* In a real implementation, you would use a proper Google icon */}
                   <svg className="mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path fill="#EA4335" d="M5.26620003,9.76452941 C6.19878754,6.93863203 8.85444915,4.90909091 12,4.90909091 C13.6909091,4.90909091 15.2363636,5.50909091 16.4527273,6.49090909 L19.6054545,3.33818182 C17.5527273,1.36 14.9345455,0 12,0 C7.27006974,0 3.1977497,2.69829785 1.23999023,6.65002441 L5.26620003,9.76452941 Z" />
                     <path fill="#34A853" d="M16.0407269,18.0125889 C14.9509167,18.7163016 13.5660892,19.0909091 12,19.0909091 C8.86648613,19.0909091 6.21911939,17.076871 5.27698177,14.2678769 L1.23746264,17.3349879 C3.19279051,21.2970142 7.26500293,24 12,24 C14.9328362,24 17.7353462,22.9573905 19.834192,20.9995801 L16.0407269,18.0125889 Z" />
