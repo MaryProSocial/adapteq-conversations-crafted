@@ -10,7 +10,7 @@ interface DemoRequestSheetProps {
 }
 
 const DemoRequestSheet = ({ 
-  triggerText = "Request Demo", 
+  triggerText = "Try It Free", 
   buttonClassName = "bg-Adapteq-blue hover:bg-blue-700" 
 }: DemoRequestSheetProps) => {
   const [open, setOpen] = React.useState(false);
@@ -22,9 +22,9 @@ const DemoRequestSheet = ({
       </SheetTrigger>
       <SheetContent className="bg-gradient-to-r from-blue-800 to-purple-400 text-white">
         <SheetHeader className="mb-6">
-          <SheetTitle className="text-white text-2xl">Request a Demo</SheetTitle>
+          <SheetTitle className="text-white text-2xl">Get Started Now</SheetTitle>
           <SheetDescription className="text-white/90">
-            Tell us about your project and we'll get back to you with more information.
+            Try Adapteq's adaptive conversation platform for free. No commitments.
           </SheetDescription>
         </SheetHeader>
         <DemoRequestForm onSuccess={() => setOpen(false)} />
