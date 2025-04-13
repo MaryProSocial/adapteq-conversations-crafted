@@ -130,13 +130,42 @@ const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.isUser ? '' : 'justify-end'}`}>
                 <div 
-                  className={`p-3 rounded-lg max-w-[80%] ${
+                  className={`p-3 rounded-lg ${
                     message.isUser 
                       ? 'bg-gray-100' 
                       : 'bg-adapteq-purple text-white'
-                  }`}
+                  } ${message.isUser && showClassification && index === messages.length - 1 ? 'mb-2' : ''}`}
                 >
                   <p className="text-sm">{message.content}</p>
+                  
+                  {/* Show classification inside the user message bubble */}
+                  {message.isUser && showClassification && index === messages.length - 1 && classification && (
+                    <div className="mt-3 pt-3 border-t border-gray-300">
+                      <p className="text-xs font-medium text-adapteq-navy mb-2">Message Classification:</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="flex items-center space-x-1">
+                          <MessageSquareText size={12} className="text-adapteq-purple" />
+                          <span className="text-xs text-gray-600">Intent:</span>
+                          <span className="text-xs font-medium">{classification.intent}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <SmilePlus size={12} className="text-adapteq-purple" />
+                          <span className="text-xs text-gray-600">Emotion:</span>
+                          <span className="text-xs font-medium">{classification.emotion}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Heart size={12} className="text-adapteq-purple" />
+                          <span className="text-xs text-gray-600">Topic:</span>
+                          <span className="text-xs font-medium">{classification.topic}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Brain size={12} className="text-adapteq-purple" />
+                          <span className="text-xs text-gray-600">Urgency:</span>
+                          <span className="text-xs font-medium">{classification.urgency}</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -146,34 +175,6 @@ const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
                 <div className="bg-adapteq-grey p-2 rounded-lg text-xs text-gray-600 flex items-center space-x-2 animate-pulse">
                   <Brain size={16} className="text-adapteq-purple" />
                   <span>Analyzing message...</span>
-                </div>
-              </div>
-            )}
-            
-            {showClassification && classification && (
-              <div className="bg-adapteq-grey/50 p-3 rounded-lg border border-adapteq-purple/20">
-                <p className="text-xs font-medium text-adapteq-navy mb-2">Message Classification:</p>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="flex items-center space-x-2">
-                    <MessageSquareText size={14} className="text-adapteq-purple" />
-                    <span className="text-xs text-gray-600">Intent:</span>
-                    <span className="text-xs font-medium">{classification.intent}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <SmilePlus size={14} className="text-adapteq-purple" />
-                    <span className="text-xs text-gray-600">Emotion:</span>
-                    <span className="text-xs font-medium">{classification.emotion}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Heart size={14} className="text-adapteq-purple" />
-                    <span className="text-xs text-gray-600">Topic:</span>
-                    <span className="text-xs font-medium">{classification.topic}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Brain size={14} className="text-adapteq-purple" />
-                    <span className="text-xs text-gray-600">Urgency:</span>
-                    <span className="text-xs font-medium">{classification.urgency}</span>
-                  </div>
                 </div>
               </div>
             )}
