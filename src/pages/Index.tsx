@@ -15,10 +15,10 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <Hero />
+      <ApiService />
       <Separator className="my-8 container mx-auto" />
       <Features />
       <Benefits />
-      <ApiService />
       <HowItWorks />
       <CTA />
       <Footer />
