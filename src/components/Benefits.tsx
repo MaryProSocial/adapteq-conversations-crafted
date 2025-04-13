@@ -7,8 +7,18 @@ import {
   Users
 } from 'lucide-react';
 import ScenarioCircle from './ScenarioCircle';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from '@/components/ui/carousel';
 
 const Benefits = () => {
+  const isMobile = useIsMobile();
+  
   const benefits = [
     {
       icon: <MessageCircleOff size={36} className="text-Adapteq-purple" />,
@@ -32,6 +42,46 @@ const Benefits = () => {
     }
   ];
 
+  const renderBenefitsDesktop = () => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {benefits.map((benefit, index) => (
+        <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+          <div className="mb-4">{benefit.icon}</div>
+          <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+          <p className="text-gray-600 text-sm">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderBenefitsMobile = () => (
+    <Carousel className="w-full">
+      <CarouselContent>
+        {benefits.map((benefit, index) => (
+          <CarouselItem key={index}>
+            <div className="bg-white p-6 rounded-lg shadow-md h-full">
+              <div className="mb-4">{benefit.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+              <p className="text-gray-600 text-sm">{benefit.description}</p>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <div className="flex justify-center mt-4 gap-1">
+        {benefits.map((_, i) => (
+          <div
+            key={i}
+            className="h-2 w-2 rounded-full bg-gray-300 mx-1"
+          />
+        ))}
+      </div>
+      <div className="hidden sm:flex sm:justify-end sm:space-x-2 mt-4">
+        <CarouselPrevious className="relative -left-0 top-0 translate-y-0" />
+        <CarouselNext className="relative -right-0 top-0 translate-y-0" />
+      </div>
+    </Carousel>
+  );
+
   return (
     <section id="benefits" className="py-16 md:py-24 bg-Adapteq-grey">
       <div className="container mx-auto px-4 md:px-6">
@@ -46,15 +96,7 @@ const Benefits = () => {
 
         <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="md:w-1/2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="mb-4">{benefit.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
+            {isMobile ? renderBenefitsMobile() : renderBenefitsDesktop()}
           </div>
 
           <div className="md:w-1/2">

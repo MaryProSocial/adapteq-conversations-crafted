@@ -8,8 +8,83 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel';
 
 const CognitiveArchitecture = () => {
+  const isMobile = useIsMobile();
+  
+  const kpiItems = [
+    {
+      icon: <BarChart className="h-8 w-8 text-Adapteq-blue mx-auto mb-4" />,
+      value: "95%",
+      label: "User Engagement Improvement"
+    },
+    {
+      icon: <BarChart className="h-8 w-8 text-Adapteq-blue mx-auto mb-4" />,
+      value: "85%",
+      label: "Task Completion Rate"
+    },
+    {
+      icon: <BarChart className="h-8 w-8 text-Adapteq-blue mx-auto mb-4" />,
+      value: "3x",
+      label: "ROI Compared to Standard AI"
+    },
+    {
+      icon: <BarChart className="h-8 w-8 text-Adapteq-blue mx-auto mb-4" />,
+      value: "40%",
+      label: "Support Cost Reduction"
+    }
+  ];
+
+  const renderKpiDesktop = () => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {kpiItems.map((item, index) => (
+        <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+          {item.icon}
+          <h4 className="font-bold text-3xl text-Adapteq-navy">{item.value}</h4>
+          <p className="text-sm text-gray-600">{item.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderKpiMobile = () => (
+    <Carousel className="w-full">
+      <CarouselContent>
+        {kpiItems.map((item, index) => (
+          <CarouselItem key={index} className="sm:basis-1/2">
+            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm h-full">
+              {item.icon}
+              <h4 className="font-bold text-3xl text-Adapteq-navy">{item.value}</h4>
+              <p className="text-sm text-gray-600">{item.label}</p>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      
+      <div className="flex justify-center mt-6 gap-1">
+        {kpiItems.map((_, i) => (
+          <div
+            key={i}
+            className="h-2 w-2 rounded-full bg-gray-300 mx-1"
+          />
+        ))}
+      </div>
+      
+      <div className="hidden sm:flex sm:justify-end sm:space-x-2 mt-4">
+        <CarouselPrevious className="relative -left-0 top-0 translate-y-0" />
+        <CarouselNext className="relative -right-0 top-0 translate-y-0" />
+      </div>
+    </Carousel>
+  );
+
   return (
     <section id="cognitive-architecture" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -104,28 +179,7 @@ const CognitiveArchitecture = () => {
 
         <div className="text-center">
           <h3 className="text-xl font-semibold mb-6 text-Adapteq-navy">Key Performance Indicators</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-              <BarChart className="h-8 w-8 text-Adapteq-blue mx-auto mb-4" />
-              <h4 className="font-bold text-3xl text-Adapteq-navy">95%</h4>
-              <p className="text-sm text-gray-600">User Engagement Improvement</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-              <BarChart className="h-8 w-8 text-Adapteq-blue mx-auto mb-4" />
-              <h4 className="font-bold text-3xl text-Adapteq-navy">85%</h4>
-              <p className="text-sm text-gray-600">Task Completion Rate</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-              <BarChart className="h-8 w-8 text-Adapteq-blue mx-auto mb-4" />
-              <h4 className="font-bold text-3xl text-Adapteq-navy">3x</h4>
-              <p className="text-sm text-gray-600">ROI Compared to Standard AI</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-              <BarChart className="h-8 w-8 text-Adapteq-blue mx-auto mb-4" />
-              <h4 className="font-bold text-3xl text-Adapteq-navy">40%</h4>
-              <p className="text-sm text-gray-600">Support Cost Reduction</p>
-            </div>
-          </div>
+          {isMobile ? renderKpiMobile() : renderKpiDesktop()}
         </div>
       </div>
     </section>
