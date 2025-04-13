@@ -19,7 +19,7 @@ const Index = () => {
       <Benefits />
       <CognitiveArchitecture />
       <ApiService />
-        <HowItWorks/>
+      <HowItWorks/>
       <CTA />
       <Footer />
     </div>
