@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Home, Briefcase, MessageSquare, BookOpen, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -48,81 +47,113 @@ const ScenarioCircle = () => {
   };
 
   return (
-    <div className="relative w-full mx-auto h-[500px]">
-      {/* Circular rotating background */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[400px] h-[400px] rounded-full border-2 border-dashed border-Adapteq-purple/30 animate-spin-slow"></div>
-        <div className="absolute w-80 h-80 rounded-full border border-Adapteq-purple/20"></div>
-      </div>
-      
-      {/* Scenario buttons positioned in a circle */}
-      {scenarios.map((scenario, index) => {
-        // Calculate position around the circle
-        const angle = (index * Math.PI / 2) - Math.PI / 4; // Distribute evenly
-        const x = Math.cos(angle) * 170; // Increased radius by 25%
-        const y = Math.sin(angle) * 170; // Increased radius by 25%
-        
-        return (
+    <div className="w-full">
+      {/* Mobile List View */}
+      <div className="md:hidden space-y-4">
+        <h3 className="text-center text-xl font-semibold mb-6 text-Adapteq-navy">Real Scenarios, Real Impact</h3>
+        {scenarios.map((scenario, index) => (
           <button
             key={index}
             className={cn(
-              "absolute transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full", // Increased size
-              "flex flex-col items-center justify-center transition-all duration-300",
-              "bg-white shadow-md hover:shadow-lg hover:scale-110 z-10",
-              activeScenario === index ? "scale-110 bg-Adapteq-purple/10" : ""
+              "w-full p-4 rounded-lg transition-all duration-300",
+              "bg-white shadow-md hover:shadow-lg",
+              activeScenario === index ? "bg-Adapteq-purple/10" : ""
             )}
-            style={{
-              left: `calc(50% + ${x}px)`,
-              top: `calc(50% + ${y}px)`,
-            }}
             onClick={() => handleScenarioClick(index)}
           >
-            <div className="mb-1">{scenario.icon}</div>
-            <div className="text-xs font-medium text-center text-Adapteq-navy leading-tight px-1">
-              {scenario.title}
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-full bg-Adapteq-purple/10">
+                {scenario.icon}
+              </div>
+              <span className="font-medium text-Adapteq-navy">
+                {scenario.title}
+              </span>
             </div>
+            {activeScenario === index && (
+              <p className="mt-3 text-sm text-gray-600">
+                {scenario.description}
+              </p>
+            )}
           </button>
-        );
-      })}
-      
-      {/* Center circle with title */}
-      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-r from-blue-800 to-purple-400 flex items-center justify-center p-2">
-        <span className="text-white text-base text-center font-semibold">Real Scenarios, Real Impact</span>
+        ))}
       </div>
-      
-      {/* Description flyout */}
-      {activeScenario !== null && (
-        <>
-          <div 
-            className="fixed inset-0 bg-transparent z-20" 
-            onClick={handleClickOutside}
-          />
-          <div 
-            className="absolute z-30 bg-white rounded-lg p-4 shadow-xl w-72 max-w-xs transition-all duration-300 animate-in fade-in slide-in-from-bottom-5"
-            style={{
-              left: "50%",
-              top: "50%",
-              transform: "translate(-50%, -50%)"
-            }}
-          >
-            <button 
-              className="absolute right-2 top-2 text-gray-500 hover:text-gray-700"
-              onClick={handleClickOutside}
+
+      {/* Desktop Circle View */}
+      <div className="hidden md:block relative w-full mx-auto h-[500px]">
+        {/* Circular rotating background */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-[400px] h-[400px] rounded-full border-2 border-dashed border-Adapteq-purple/30 animate-spin-slow"></div>
+          <div className="absolute w-80 h-80 rounded-full border border-Adapteq-purple/20"></div>
+        </div>
+        
+        {/* Scenario buttons positioned in a circle */}
+        {scenarios.map((scenario, index) => {
+          const angle = (index * Math.PI / 2) - Math.PI / 4;
+          const x = Math.cos(angle) * 170;
+          const y = Math.sin(angle) * 170;
+          
+          return (
+            <button
+              key={index}
+              className={cn(
+                "absolute transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full",
+                "flex flex-col items-center justify-center transition-all duration-300",
+                "bg-white shadow-md hover:shadow-lg hover:scale-110 z-10",
+                activeScenario === index ? "scale-110 bg-Adapteq-purple/10" : ""
+              )}
+              style={{
+                left: `calc(50% + ${x}px)`,
+                top: `calc(50% + ${y}px)`,
+              }}
+              onClick={() => handleScenarioClick(index)}
             >
-              <X size={18} />
+              <div className="mb-1">{scenario.icon}</div>
+              <div className="text-xs font-medium text-center text-Adapteq-navy leading-tight px-1">
+                {scenario.title}
+              </div>
             </button>
-            <div className="flex items-center mb-3">
-              {scenarios[activeScenario].icon}
-              <h4 className="ml-2 font-semibold text-Adapteq-navy">
-                {scenarios[activeScenario].title}
-              </h4>
+          );
+        })}
+        
+        {/* Center circle with title */}
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-r from-blue-800 to-purple-400 flex items-center justify-center p-2">
+          <span className="text-white text-base text-center font-semibold">Real Scenarios, Real Impact</span>
+        </div>
+        
+        {/* Description flyout */}
+        {activeScenario !== null && (
+          <>
+            <div 
+              className="fixed inset-0 bg-transparent z-20" 
+              onClick={handleClickOutside}
+            />
+            <div 
+              className="absolute z-30 bg-white rounded-lg p-4 shadow-xl w-72 max-w-xs transition-all duration-300 animate-in fade-in slide-in-from-bottom-5"
+              style={{
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)"
+              }}
+            >
+              <button 
+                className="absolute right-2 top-2 text-gray-500 hover:text-gray-700"
+                onClick={handleClickOutside}
+              >
+                <X size={18} />
+              </button>
+              <div className="flex items-center mb-3">
+                {scenarios[activeScenario].icon}
+                <h4 className="ml-2 font-semibold text-Adapteq-navy">
+                  {scenarios[activeScenario].title}
+                </h4>
+              </div>
+              <p className="text-sm text-gray-600">
+                {scenarios[activeScenario].description}
+              </p>
             </div>
-            <p className="text-sm text-gray-600">
-              {scenarios[activeScenario].description}
-            </p>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

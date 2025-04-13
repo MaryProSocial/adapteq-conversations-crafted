@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Braces, BrainCircuit, LineChart } from 'lucide-react';
 
@@ -41,7 +40,7 @@ const Features = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="heading-2 mb-4">
-            Powerful Features for <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Human-Centered AI</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Human-Centered Value</span>
           </h2>
           <p className="body-text max-w-3xl mx-auto">
             Adapteq combines cutting-edge AI technology with deep expertise in human services to create 
@@ -49,7 +48,38 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Mobile Carousel View */}
+        <div className="md:hidden">
+          <div className="overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+            <div className="flex gap-4 pb-4">
+              {features.map((feature, index) => (
+                <div 
+                  key={index} 
+                  className="flex-none w-[85vw] snap-center"
+                >
+                  <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+                    <div className="mb-6">{feature.icon}</div>
+                    <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
+                    <p className="text-gray-600 mb-6">{feature.description}</p>
+                    <div className="mt-auto">
+                      <ul className="space-y-2">
+                        {feature.details.map((detail, idx) => (
+                          <li key={idx} className="flex items-center">
+                            <div className="h-1.5 w-1.5 rounded-full bg-Adapteq-purple mr-2"></div>
+                            <span className="text-gray-700">{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Grid View */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div 
               key={index} 

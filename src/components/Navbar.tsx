@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, Link, BookOpen } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
@@ -31,7 +30,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <RouterLink to="/" className="flex items-center">
+            <RouterLink to="/" className="flex items-center outline-none">
               <span className="text-2xl font-bold">
                 <span className="text-Adapteq-navy">Adapt</span>
                 <span className="text-Adapteq-purple/70">eq</span>
@@ -60,7 +59,7 @@ const Navbar = () => {
               onClick={() => navigateToSection('cognitive-architecture')} 
               className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
             >
-              Cognitive Architecture
+              Learn More
             </button>
             <button 
               onClick={() => navigateToSection('api-service')} 
@@ -111,7 +110,7 @@ const Navbar = () => {
                 onClick={() => navigateToSection('cognitive-architecture')} 
                 className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors text-left"
               >
-                Cognitive Architecture
+                Learn More
               </button>
               <button 
                 onClick={() => navigateToSection('api-service')} 

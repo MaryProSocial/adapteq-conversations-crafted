@@ -15,10 +15,10 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <Hero />
+      <ApiService />
       <Features />
       <Benefits />
       <CognitiveArchitecture />
-      <ApiService />
       <CTA />
       <Footer />
     </div>

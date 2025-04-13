@@ -1,12 +1,14 @@
-
 import React from 'react';
 import { 
   MessageCircleOff, 
   ShuffleIcon, 
   BarChart2,
-  Users
+  Users,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import ScenarioCircle from './ScenarioCircle';
+import { cn } from '@/lib/utils';
 
 const Benefits = () => {
   const benefits = [
@@ -45,7 +47,30 @@ const Benefits = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-12 items-start">
-          <div className="md:w-1/2">
+          {/* Mobile Carousel View */}
+          <div className="md:hidden w-full">
+            <div className="relative">
+              <div className="overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+                <div className="flex gap-4 pb-4">
+                  {benefits.map((benefit, index) => (
+                    <div 
+                      key={index} 
+                      className="flex-none w-[85vw] snap-center"
+                    >
+                      <div className="bg-white p-6 rounded-lg shadow-md h-full">
+                        <div className="mb-4">{benefit.icon}</div>
+                        <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                        <p className="text-gray-600 text-sm">{benefit.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Grid View */}
+          <div className="hidden md:block md:w-1/2">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-md">

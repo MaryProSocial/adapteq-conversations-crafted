@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   BookOpen, 
@@ -11,11 +10,11 @@ import { Button } from '@/components/ui/button';
 
 const CognitiveArchitecture = () => {
   return (
-    <section id="cognitive-architecture" className="py-20 bg-white">
+    <section id="cognitive-architecture" className="py-8 md:py-12">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="heading-2 mb-4">
-            Understand <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Cognitive Architecture</span>
+            What is a <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Conversational Agent?</span>
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Learn how advanced cognitive architecture is transforming user connections and delivering measurable outcomes through meaningful engagement.
@@ -83,7 +82,7 @@ const CognitiveArchitecture = () => {
             </div>
           </div>
         </div>
-
+        {/* KPIs section temporarily hidden
         <div className="bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl p-8 mb-12">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-2/3 mb-6 md:mb-0">
@@ -127,6 +126,7 @@ const CognitiveArchitecture = () => {
             </div>
           </div>
         </div>
+        */}
       </div>
     </section>
   );

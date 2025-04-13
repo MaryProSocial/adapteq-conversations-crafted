@@ -1,10 +1,9 @@
-
 import React from 'react';
 import DemoRequestForm from './DemoRequestForm';
 
 const CTA = () => {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-8 md:py-12">
       <div className="container mx-auto px-4 md:px-6">
         <div className="bg-gradient-to-r from-blue-800 to-purple-400 rounded-2xl overflow-hidden">
           <div className="flex flex-col md:flex-row">
