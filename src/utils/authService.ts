@@ -14,12 +14,38 @@ const msalConfig = {
 // Initialize MSAL instance
 const msalInstance = new PublicClientApplication(msalConfig);
 
-// Login function - opens a popup for authentication
-export const login = async () => {
+// Login function with Microsoft - opens a popup for authentication
+export const login = async (provider = 'microsoft') => {
   try {
-    const loginResponse = await msalInstance.loginPopup({
-      scopes: ["openid", "profile"]
-    });
+    let loginResponse;
+    
+    switch (provider) {
+      case 'microsoft':
+        loginResponse = await msalInstance.loginPopup({
+          scopes: ["openid", "profile"]
+        });
+        break;
+      case 'google':
+        // In a real implementation, this would use the appropriate B2C policy for Google
+        // or a separate Google authentication library
+        loginResponse = await msalInstance.loginPopup({
+          scopes: ["openid", "profile"],
+          // Here you would specify the Google auth policy in your B2C tenant
+          authority: `https://${import.meta.env.VITE_AZURE_AD_TENANT_NAME || "yourtenant"}.b2clogin.com/${import.meta.env.VITE_AZURE_AD_TENANT_NAME || "yourtenant"}.onmicrosoft.com/B2C_1_google`
+        });
+        break;
+      case 'email':
+        // In a real implementation, this would use the appropriate B2C policy for email/password
+        loginResponse = await msalInstance.loginPopup({
+          scopes: ["openid", "profile"],
+          // Here you would specify the email/password auth policy in your B2C tenant
+          authority: `https://${import.meta.env.VITE_AZURE_AD_TENANT_NAME || "yourtenant"}.b2clogin.com/${import.meta.env.VITE_AZURE_AD_TENANT_NAME || "yourtenant"}.onmicrosoft.com/B2C_1_email`
+        });
+        break;
+      default:
+        throw new Error("Invalid provider specified");
+    }
+    
     return loginResponse;
   } catch (error) {
     console.error("Login failed:", error);
