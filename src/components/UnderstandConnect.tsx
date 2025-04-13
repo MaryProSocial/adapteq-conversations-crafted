@@ -1,0 +1,219 @@
+
+import React, { useState, useEffect } from 'react';
+import { Send, Brain, SmilePlus, MessageSquareText, Heart } from 'lucide-react';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+type ChatMessage = {
+  content: string;
+  isUser: boolean;
+  typing?: boolean;
+};
+
+type Classification = {
+  intent: string;
+  emotion: string;
+  urgency: string;
+  topic: string;
+};
+
+const CLASSIFICATIONS = {
+  intent: ["Information Seeking", "Assistance Request", "Complaint", "General Inquiry"],
+  emotion: ["Neutral", "Concerned", "Frustrated", "Hopeful"],
+  urgency: ["Low", "Medium", "High", "Critical"],
+  topic: ["Housing", "Healthcare", "Financial", "Employment"]
+};
+
+interface UnderstandConnectProps {
+  className?: string;
+}
+
+const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    { content: "Hi there! I'm your AI assistant. How can I help you today?", isUser: false },
+  ]);
+  const [inputValue, setInputValue] = useState("I'm worried about my housing situation and need help finding affordable options near me.");
+  const [isTyping, setIsTyping] = useState(false);
+  const [hasUserSentMessage, setHasUserSentMessage] = useState(false);
+  const [showInputArea, setShowInputArea] = useState(true);
+  const [classification, setClassification] = useState<Classification | null>(null);
+  const [showClassification, setShowClassification] = useState(false);
+  const [classifyingMessage, setClassifyingMessage] = useState(false);
+
+  const handleSend = (e?: React.FormEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    
+    if (!inputValue.trim() || hasUserSentMessage) return;
+    
+    // Add user message
+    const userMessage = { content: inputValue, isUser: true };
+    setMessages([...messages, userMessage]);
+    
+    // Start typing indicator
+    setIsTyping(true);
+    
+    // Show the classifying indicator
+    setClassifyingMessage(true);
+    
+    // Simulate classification process
+    setTimeout(() => {
+      // Generate "realistic" classifications based on the message content
+      const newClassification = {
+        intent: inputValue.toLowerCase().includes('need help') ? 
+          "Assistance Request" : 
+          inputValue.toLowerCase().includes('find') ? 
+            "Information Seeking" : 
+            "General Inquiry",
+        emotion: inputValue.toLowerCase().includes('worried') ? 
+          "Concerned" : 
+          inputValue.toLowerCase().includes('frustrated') ? 
+            "Frustrated" : 
+            "Neutral",
+        urgency: inputValue.toLowerCase().includes('urgent') || inputValue.toLowerCase().includes('emergency') ? 
+          "High" : 
+          "Medium",
+        topic: inputValue.toLowerCase().includes('housing') ? 
+          "Housing" : 
+          inputValue.toLowerCase().includes('health') ? 
+            "Healthcare" : 
+            inputValue.toLowerCase().includes('money') || inputValue.toLowerCase().includes('afford') ? 
+              "Financial" : 
+              "Employment"
+      };
+      
+      setClassification(newClassification);
+      setClassifyingMessage(false);
+      setShowClassification(true);
+      
+      // Continue with AI response after classification
+      setTimeout(() => {
+        setIsTyping(false);
+        
+        // Generate response based on classification
+        let responseContent;
+        
+        if (newClassification.topic === "Housing" && newClassification.intent === "Assistance Request") {
+          responseContent = "I understand you're concerned about finding affordable housing. I'd be happy to help you explore options in your area. Could you share which city or neighborhood you're looking in?";
+        } else if (newClassification.topic === "Financial") {
+          responseContent = "I see you're dealing with financial concerns related to housing. There are several assistance programs that might help, including rental subsidies and affordable housing initiatives. Would you like me to provide more information about these programs?";
+        } else {
+          responseContent = "Thank you for sharing your situation. To help you find the best housing options, I'll need a bit more information about your location, budget, and timeline. Would you mind sharing those details?";
+        }
+        
+        // Add AI response
+        setMessages(prev => [...prev, { content: responseContent, isUser: false }]);
+        
+        // Mark that user has sent a message
+        setHasUserSentMessage(true);
+        
+        // Hide input area after sending
+        setShowInputArea(false);
+      }, 1000);
+    }, 2000);
+  };
+
+  return (
+    <div className="flex flex-col space-y-3">
+      <div className="text-left">
+        <h3 className="text-xl font-semibold text-adapteq-navy">Understand and Connect</h3>
+        <p className="text-sm text-gray-600">
+          Apply intelligence to every user chat
+        </p>
+      </div>
+      
+      <Card className={`bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200 p-4 ${className}`}>
+        <div className="p-6">
+          <div className="space-y-4">
+            {messages.map((message, index) => (
+              <div key={index} className={`flex ${message.isUser ? '' : 'justify-end'}`}>
+                <div 
+                  className={`p-3 rounded-lg max-w-[80%] ${
+                    message.isUser 
+                      ? 'bg-gray-100' 
+                      : 'bg-adapteq-purple text-white'
+                  }`}
+                >
+                  <p className="text-sm">{message.content}</p>
+                </div>
+              </div>
+            ))}
+            
+            {classifyingMessage && (
+              <div className="flex justify-center">
+                <div className="bg-adapteq-grey p-2 rounded-lg text-xs text-gray-600 flex items-center space-x-2 animate-pulse">
+                  <Brain size={16} className="text-adapteq-purple" />
+                  <span>Analyzing message...</span>
+                </div>
+              </div>
+            )}
+            
+            {showClassification && classification && (
+              <div className="bg-adapteq-grey/50 p-3 rounded-lg border border-adapteq-purple/20">
+                <p className="text-xs font-medium text-adapteq-navy mb-2">Message Classification:</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="flex items-center space-x-2">
+                    <MessageSquareText size={14} className="text-adapteq-purple" />
+                    <span className="text-xs text-gray-600">Intent:</span>
+                    <span className="text-xs font-medium">{classification.intent}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <SmilePlus size={14} className="text-adapteq-purple" />
+                    <span className="text-xs text-gray-600">Emotion:</span>
+                    <span className="text-xs font-medium">{classification.emotion}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Heart size={14} className="text-adapteq-purple" />
+                    <span className="text-xs text-gray-600">Topic:</span>
+                    <span className="text-xs font-medium">{classification.topic}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Brain size={14} className="text-adapteq-purple" />
+                    <span className="text-xs text-gray-600">Urgency:</span>
+                    <span className="text-xs font-medium">{classification.urgency}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {isTyping && !classifyingMessage && (
+              <div className="flex justify-end">
+                <div className="bg-adapteq-purple p-3 rounded-lg text-white">
+                  <div className="flex items-center">
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse mr-1"></div>
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse delay-100 mr-1"></div>
+                    <div className="h-2 w-2 bg-white rounded-full animate-pulse delay-200"></div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+          
+          {showInputArea && (
+            <form onSubmit={handleSend} className="mt-4 flex items-center space-x-2">
+              <Input
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="Type your message..."
+                className="flex-1"
+                disabled={hasUserSentMessage}
+              />
+              <Button 
+                type="submit"
+                size="icon"
+                className={`bg-adapteq-purple hover:bg-adapteq-dark-purple transition-opacity ${hasUserSentMessage ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={hasUserSentMessage}
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </form>
+          )}
+        </div>
+      </Card>
+    </div>
+  );
+};
+
+export default UnderstandConnect;

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import InteractiveChat from './InteractiveChat';
+import UnderstandConnect from './UnderstandConnect';
 import EmailForm from './EmailForm';
 
 const Hero = () => {
@@ -25,7 +26,8 @@ const Hero = () => {
               <EmailForm />
             </div>
           </div>
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 space-y-6">
+            <UnderstandConnect />
             <InteractiveChat />
           </div>
         </div>
