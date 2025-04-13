@@ -16,9 +16,9 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Separator className="my-8 container mx-auto" />
-      <ApiService />
       <Features />
       <Benefits />
+      <ApiService />
       <HowItWorks />
       <CTA />
       <Footer />
