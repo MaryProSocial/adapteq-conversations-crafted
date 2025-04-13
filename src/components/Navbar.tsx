@@ -3,14 +3,27 @@ import React, { useState } from 'react';
 import { Menu, X, Link } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleTryFree = () => {
     navigate('/signup');
+  };
+
+  const navigateToSection = (sectionId: string) => {
+    // If we're not on the home page, navigate to home page first
+    if (location.pathname !== '/') {
+      navigate(`/#${sectionId}`);
+    } else {
+      // If already on home page, just scroll to section
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Close mobile menu if open
+    setIsMenuOpen(false);
   };
 
   return (
@@ -28,9 +41,24 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors">Features</a>
-            <a href="#benefits" className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors">Benefits</a>
-            <a href="#api-service" className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors">API Architecture</a>
+            <button 
+              onClick={() => navigateToSection('features')} 
+              className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
+            >
+              Features
+            </button>
+            <button 
+              onClick={() => navigateToSection('benefits')} 
+              className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
+            >
+              Benefits
+            </button>
+            <button 
+              onClick={() => navigateToSection('api-service')} 
+              className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
+            >
+              API Architecture
+            </button>
             <RouterLink to="/api-docs" className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors flex items-center">
               <Link className="mr-1 h-4 w-4" />
               API Docs
@@ -58,27 +86,24 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <a 
-                href="#features" 
-                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              <button 
+                onClick={() => navigateToSection('features')} 
+                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors text-left"
               >
                 Features
-              </a>
-              <a 
-                href="#benefits" 
-                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button 
+                onClick={() => navigateToSection('benefits')} 
+                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors text-left"
               >
                 Benefits
-              </a>
-              <a 
-                href="#api-service" 
-                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button 
+                onClick={() => navigateToSection('api-service')} 
+                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors text-left"
               >
                 API Architecture
-              </a>
+              </button>
               <RouterLink 
                 to="/api-docs" 
                 className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors flex items-center"
