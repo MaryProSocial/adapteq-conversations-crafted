@@ -5,7 +5,7 @@ import Hero from '@/components/Hero';
 import ApiService from '@/components/ApiService';
 import Features from '@/components/Features';
 import Benefits from '@/components/Benefits';
-import CognitiveServices from '@/components/CognitiveServices';
+import CognitiveArchitecture from '@/components/CognitiveArchitecture';
 import HowItWorks from '@/components/HowItWorks';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
@@ -17,7 +17,7 @@ const Index = () => {
       <Hero />
       <Features />
       <Benefits />
-      <CognitiveServices />
+      <CognitiveArchitecture />
       <ApiService />
       <HowItWorks />
       <CTA />

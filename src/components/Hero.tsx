@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2 space-y-6">
             <div className="inline-block bg-Adapteq-purple/10 px-4 py-1 rounded-full mb-2">
-              <span className="text-sm font-medium text-Adapteq-purple">Adaptive AI for Human Services</span>
+              <span className="text-sm font-medium text-Adapteq-purple">Adaptive AI for Meaningful Connections</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-Adapteq-navy">
               Human Centered <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Connection</span>
@@ -19,7 +19,7 @@ const Hero = () => {
               Adaptive AI Conversations That Evolve With Every Interaction
             </h3>
             <p className="text-lg leading-relaxed text-gray-700">
-              Purpose-built for human services, our adaptive conversation platform learns from each interaction to deepen user connections, improve outcomes, and increase engagement—without requiring technical expertise.
+              Purpose-built to drive engagement, our adaptive conversation platform learns from each interaction to deepen user connections, improve outcomes, and increase retention—without requiring technical expertise.
             </p>
             <div className="mt-8">
               <EmailForm />

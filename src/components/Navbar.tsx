@@ -57,10 +57,10 @@ const Navbar = () => {
               Benefits
             </button>
             <button 
-              onClick={() => navigateToSection('cognitive-services')} 
+              onClick={() => navigateToSection('cognitive-architecture')} 
               className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
             >
-              Cognitive Services
+              Cognitive Architecture
             </button>
             <button 
               onClick={() => navigateToSection('api-service')} 
@@ -108,10 +108,10 @@ const Navbar = () => {
                 Benefits
               </button>
               <button 
-                onClick={() => navigateToSection('cognitive-services')} 
+                onClick={() => navigateToSection('cognitive-architecture')} 
                 className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors text-left"
               >
-                Cognitive Services
+                Cognitive Architecture
               </button>
               <button 
                 onClick={() => navigateToSection('api-service')} 
