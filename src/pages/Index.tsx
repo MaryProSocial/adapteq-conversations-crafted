@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import HowItWorks from '@/components/HowItWorks';
 import Benefits from '@/components/Benefits';
+import ApiService from '@/components/ApiService';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 
@@ -16,6 +17,7 @@ const Index = () => {
       <Features />
       <Benefits />
       <HowItWorks />
+      <ApiService />
       <CTA />
       <Footer />
     </div>

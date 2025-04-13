@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import SignUp from "./pages/SignUp";
+import ApiDocs from "./pages/ApiDocs";
 import NotFound from "./pages/NotFound";
 
 // Create a new QueryClient instance
@@ -12,13 +13,13 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    {/* Removed the nested TooltipProvider from here */}
     <Toaster />
     <Sonner />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/api-docs" element={<ApiDocs />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
