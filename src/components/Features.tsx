@@ -44,7 +44,7 @@ const Features = () => {
             Powerful Features for <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Human-Centered AI</span>
           </h2>
           <p className="body-text max-w-3xl mx-auto">
-            adapteq combines cutting-edge AI technology with deep expertise in human services to create 
+            Adapteq combines cutting-edge AI technology with deep expertise in human services to create 
             conversational experiences that are empathetic, effective, and continuously improving.
           </p>
         </div>

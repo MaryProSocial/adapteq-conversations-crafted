@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, Link } from 'lucide-react';
+import { Menu, X, Link, BookOpen } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -36,6 +36,9 @@ const Navbar = () => {
                 <span className="text-Adapteq-navy">Adapt</span>
                 <span className="text-Adapteq-purple/70">eq</span>
               </span>
+              <span className="ml-2 text-xs text-Adapteq-navy font-medium hidden sm:inline-block">
+                Connected Conversations
+              </span>
             </RouterLink>
           </div>
 
@@ -52,6 +55,12 @@ const Navbar = () => {
               className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
             >
               Benefits
+            </button>
+            <button 
+              onClick={() => navigateToSection('cognitive-services')} 
+              className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors"
+            >
+              Cognitive Services
             </button>
             <button 
               onClick={() => navigateToSection('api-service')} 
@@ -97,6 +106,12 @@ const Navbar = () => {
                 className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors text-left"
               >
                 Benefits
+              </button>
+              <button 
+                onClick={() => navigateToSection('cognitive-services')} 
+                className="text-Adapteq-navy hover:text-Adapteq-blue transition-colors text-left"
+              >
+                Cognitive Services
               </button>
               <button 
                 onClick={() => navigateToSection('api-service')} 
