@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Send, Brain, SmilePlus, MessageSquareText, Heart } from 'lucide-react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -88,30 +88,11 @@ const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
       setClassifyingMessage(false);
       setShowClassification(true);
       
-      // Continue with AI response after classification
-      setTimeout(() => {
-        setIsTyping(false);
-        
-        // Generate response based on classification
-        let responseContent;
-        
-        if (newClassification.topic === "Housing" && newClassification.intent === "Assistance Request") {
-          responseContent = "I understand you're concerned about finding affordable housing. I'd be happy to help you explore options in your area. Could you share which city or neighborhood you're looking in?";
-        } else if (newClassification.topic === "Financial") {
-          responseContent = "I see you're dealing with financial concerns related to housing. There are several assistance programs that might help, including rental subsidies and affordable housing initiatives. Would you like me to provide more information about these programs?";
-        } else {
-          responseContent = "Thank you for sharing your situation. To help you find the best housing options, I'll need a bit more information about your location, budget, and timeline. Would you mind sharing those details?";
-        }
-        
-        // Add AI response
-        setMessages(prev => [...prev, { content: responseContent, isUser: false }]);
-        
-        // Mark that user has sent a message
-        setHasUserSentMessage(true);
-        
-        // Hide input area after sending
-        setShowInputArea(false);
-      }, 1000);
+      // Just mark that user has sent a message and hide the input area
+      // without adding a bot response
+      setIsTyping(false);
+      setHasUserSentMessage(true);
+      setShowInputArea(false);
     }, 2000);
   };
 
@@ -175,18 +156,6 @@ const UnderstandConnect: React.FC<UnderstandConnectProps> = ({ className }) => {
                 <div className="bg-adapteq-grey p-2 rounded-lg text-xs text-gray-600 flex items-center space-x-2 animate-pulse">
                   <Brain size={16} className="text-adapteq-purple" />
                   <span>Analyzing message...</span>
-                </div>
-              </div>
-            )}
-            
-            {isTyping && !classifyingMessage && (
-              <div className="flex justify-end">
-                <div className="bg-adapteq-purple p-3 rounded-lg text-white">
-                  <div className="flex items-center">
-                    <div className="h-2 w-2 bg-white rounded-full animate-pulse mr-1"></div>
-                    <div className="h-2 w-2 bg-white rounded-full animate-pulse delay-100 mr-1"></div>
-                    <div className="h-2 w-2 bg-white rounded-full animate-pulse delay-200"></div>
-                  </div>
                 </div>
               </div>
             )}
