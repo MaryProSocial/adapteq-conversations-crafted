@@ -1,18 +1,8 @@
 
 import React from 'react';
 import { Braces, BrainCircuit, LineChart } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
-} from '@/components/ui/carousel';
 
 const Features = () => {
-  const isMobile = useIsMobile();
-  
   const features = [
     {
       title: "Adaptive Prompting",
@@ -46,37 +36,23 @@ const Features = () => {
     }
   ];
 
-  const renderFeaturesDesktop = () => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {features.map((feature, index) => (
-        <div 
-          key={index} 
-          className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
-        >
-          <div className="mb-6">{feature.icon}</div>
-          <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-          <p className="text-gray-600 mb-6">{feature.description}</p>
-          <div className="mt-auto">
-            <ul className="space-y-2">
-              {feature.details.map((detail, idx) => (
-                <li key={idx} className="flex items-center">
-                  <div className="h-1.5 w-1.5 rounded-full bg-Adapteq-purple mr-2"></div>
-                  <span className="text-gray-700">{detail}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+  return (
+    <section id="features" className="py-16 md:py-24 bg-Adapteq-purple/10">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-16">
+          <h2 className="heading-2 mb-4">
+            Powerful Features for <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Human-Centered AI</span>
+          </h2>
+          <p className="body-text max-w-3xl mx-auto">
+            Adapteq combines cutting-edge AI technology with deep expertise in human services to create 
+            conversational experiences that are empathetic, effective, and continuously improving.
+          </p>
         </div>
-      ))}
-    </div>
-  );
 
-  const renderFeaturesMobile = () => (
-    <Carousel className="w-full">
-      <CarouselContent>
-        {features.map((feature, index) => (
-          <CarouselItem key={index}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
             <div 
+              key={index} 
               className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
             >
               <div className="mb-6">{feature.icon}</div>
@@ -93,40 +69,8 @@ const Features = () => {
                 </ul>
               </div>
             </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      
-      <div className="flex justify-center mt-6 gap-1">
-        {features.map((_, i) => (
-          <div
-            key={i}
-            className="h-2 w-2 rounded-full bg-gray-300 mx-1"
-          />
-        ))}
-      </div>
-      
-      <div className="hidden sm:flex sm:justify-end sm:space-x-2 mt-4">
-        <CarouselPrevious className="relative -left-0 top-0 translate-y-0" />
-        <CarouselNext className="relative -right-0 top-0 translate-y-0" />
-      </div>
-    </Carousel>
-  );
-
-  return (
-    <section id="features" className="py-16 md:py-24 bg-Adapteq-purple/10">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="heading-2 mb-4">
-            Powerful Features for <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Human-Centered AI</span>
-          </h2>
-          <p className="body-text max-w-3xl mx-auto">
-            Adapteq combines cutting-edge AI technology with deep expertise in human services to create 
-            conversational experiences that are empathetic, effective, and continuously improving.
-          </p>
+          ))}
         </div>
-
-        {isMobile ? renderFeaturesMobile() : renderFeaturesDesktop()}
       </div>
     </section>
   );
