@@ -19,6 +19,7 @@ const Index = () => {
       <Features />
       <Benefits />
       <CognitiveArchitecture />
+      <HowItWorks />
       <CTA />
       <Footer />
     </div>
