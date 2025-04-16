@@ -1,76 +1,67 @@
-# Welcome to your Lovable project
+# Adapteq - Connected Conversations
 
-## Project info
+## Project Overview
+Adapteq - Connected Conversations is a modern web application built to deliver efficient, empathetic, and effective services through AI-powered conversations.
 
-**URL**: https://lovable.dev/projects/73d78136-3465-4b4c-b936-3e3b5fd548b1
+## Development Setup
 
-## How can I edit this code?
+### Prerequisites
+- Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/73d78136-3465-4b4c-b936-3e3b5fd548b1) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+### Getting Started
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate to the project directory
+cd adapteq-conversations-crafted
 
-# Step 3: Install the necessary dependencies.
+# Step 3: Install dependencies
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Development Options
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**Use your preferred IDE**
+- Clone the repository
+- Install dependencies
+- Start the development server
+- Make changes and commit them to the repository
+
+**Edit directly in GitHub**
+- Navigate to the desired file(s)
+- Click the "Edit" button (pencil icon)
+- Make your changes and commit
 
 **Use GitHub Codespaces**
+- Navigate to the repository
+- Click on the "Code" button
+- Select "Codespaces"
+- Create a new codespace
+- Edit and commit changes
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
+## Technology Stack
 This project is built with:
-
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Deployment
+The application can be deployed using your preferred hosting service. Common options include:
+- Vercel
+- Netlify
+- AWS Amplify
 
-Simply open [Lovable](https://lovable.dev/projects/73d78136-3465-4b4c-b936-3e3b5fd548b1) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Custom Domain Setup
+To connect a custom domain:
+1. Deploy your application to your chosen hosting service
+2. Follow the hosting service's instructions for connecting a custom domain
+3. Update DNS settings as required by your hosting provider
 
 # Adapteq Style Guide
 

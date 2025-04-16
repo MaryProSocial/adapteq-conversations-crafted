@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { Search, Brain, Database, Settings, RefreshCw, BookOpen, Tv, ClipboardList } from 'lucide-react';
 import { 
@@ -41,7 +40,7 @@ const HowItWorks = () => {
       content: (
         <div className="order-1 md:order-2 flex justify-center">
           <img 
-            src="lovable-uploads/intent.svg" 
+            src="images/intent.svg" 
             alt="Understanding and connecting visualization" 
             className="w-auto max-h-100">
           </img>
@@ -55,7 +54,7 @@ const HowItWorks = () => {
       content: (
         <div className="order-1 md:order-1 flex justify-center">
           <img 
-            src="lovable-uploads/memory graphic (1).png" 
+            src="images/memory graphic (1).png" 
             alt="Memory types visualization" 
             className="w-auto max-h-100"
           />
@@ -104,7 +103,7 @@ const HowItWorks = () => {
       content: (
         <div className="order-1 md:order-1 flex justify-center items-center w-full">
           <img 
-            src="lovable-uploads/Reinforcement Loop.svg" 
+            src="images/Reinforcement Loop.svg" 
             alt="Reinforcement learning loop" 
             className="w-auto max-h-80"
           />

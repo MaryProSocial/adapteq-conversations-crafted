@@ -18,7 +18,7 @@ const CTA = () => {
             </div>
             <div className="hidden md:block md:w-2/5 relative">
               <img 
-                src="/lovable-uploads/f27cab23-bf37-4c58-ab9d-e9394f968e4d.png" 
+                src="/images/f27cab23-bf37-4c58-ab9d-e9394f968e4d.png" 
                 alt="Woman smiling and conversing"
                 className="object-cover h-full w-full" 
               />
