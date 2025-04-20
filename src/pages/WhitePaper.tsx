@@ -66,7 +66,7 @@ const WhitePaper = () => {
               <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-100">
                 From Boring Text to Adaptive Dialog
               </h2>
-              <p className="text-base leading-relaxed text-gray-100">
+              <p className="text-base leading-relaxed text-gray-100" style={{ fontSize: 'smaller' }}>
                 Users don't abandon AI conversations because the content is wrong; they quit because the dialog is wrong. 
                 Impersonal. Generic. Boring. That's why as many and 80% of users bail out frustrated. 
                 Adapteq, ProSocial's cognitive architecture, layers memory, live classification, adaptive prompts, 
