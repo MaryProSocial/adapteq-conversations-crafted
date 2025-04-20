@@ -35,12 +35,10 @@ const WhitePaper = () => {
         
         {/* Cover Page */}
         <article className="prose max-w-none">
-          <div className="min-h-[11in] relative mb-8 flex flex-col items-center justify-between py-16 px-8 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-lg print:rounded-none">
-            {/* Logo */}
-            <div className="w-48 mb-12">
-              <img src="/images/thumbnail.png" alt="Adapteq Logo" className="w-full" />
-            </div>
-            
+          <div 
+            className="min-h-[11in] relative mb-8 flex flex-col items-center justify-between py-16 px-8 text-white rounded-lg print:rounded-none bg-cover bg-center"
+            style={{ backgroundImage: 'url("/photo-1523712999610-f77fbcfc3843")' }}
+          >
             {/* Title Section */}
             <div className="text-center max-w-4xl">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
