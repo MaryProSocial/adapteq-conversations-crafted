@@ -132,6 +132,7 @@
 @media print {
   @page {
     margin: 2cm;
+    size: letter portrait;
   }
   
   body {
@@ -160,5 +161,17 @@
 
   .avoid-break {
     page-break-inside: avoid;
+  }
+
+  /* White Paper specific print styles */
+  .prose > div:first-child {
+    margin: 0;
+    height: 11in;
+    width: 8.5in;
+    position: relative;
+  }
+
+  .print\:fixed {
+    position: fixed;
   }
 }
