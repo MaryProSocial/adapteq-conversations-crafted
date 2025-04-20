@@ -1,8 +1,15 @@
 
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { ArrowLeft, Printer, Download } from "lucide-react";
 
 const ExecutiveSummary = () => {
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <div className="flex flex-col min-h-screen">
@@ -37,8 +44,28 @@ const ExecutiveSummary = () => {
           
           {/* Main content area - 75% width */}
           <div className="w-3/4 flex flex-col">
-            {/* Header with logo */}
-            <header className="p-6 flex justify-end items-center h-20 print:h-16">
+            {/* Header with actions and logo */}
+            <header className="p-6 flex justify-between items-center h-20 print:h-16">
+              <div className="print:hidden flex gap-4">
+                <Button 
+                  variant="outline" 
+                  onClick={handlePrint} 
+                  className="flex items-center gap-2"
+                >
+                  <Printer className="h-4 w-4" />
+                  Print
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="flex items-center gap-2"
+                >
+                  <Link to="/white-paper" className="flex items-center gap-2">
+                    <ArrowLeft className="h-4 w-4" />
+                    Back to Cover
+                  </Link>
+                </Button>
+              </div>
               <div>
                 <span className="text-2xl font-bold">
                   <span className="text-Adapteq-navy">Adapt</span>

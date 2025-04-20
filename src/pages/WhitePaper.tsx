@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Printer } from "lucide-react";
+import { Download, Printer, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const WhitePaper = () => {
   const handlePrint = () => {
@@ -83,6 +84,16 @@ const WhitePaper = () => {
                 <span className="print:fixed print:bottom-6 print:right-6">1</span>
               </div>
             </div>
+          </div>
+          
+          {/* Navigation to Next Page */}
+          <div className="flex justify-end mt-6 print:hidden">
+            <Button asChild>
+              <Link to="/executive-summary" className="flex items-center gap-2">
+                Next: Executive Summary
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </article>
       </div>
