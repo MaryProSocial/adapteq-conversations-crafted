@@ -37,24 +37,32 @@ const WhitePaper = () => {
         <article className="prose max-w-none">
           <div 
             className="min-h-[11in] relative mb-8 flex flex-col items-center justify-between py-16 px-8 text-white rounded-lg print:rounded-none bg-cover bg-center"
-            style={{ backgroundImage: 'url("/photo-1523712999610-f77fbcfc3843")' }}
+            style={{ backgroundImage: 'url("/lovable-uploads/097d3e3d-1931-46ac-acea-9362d90926ad.png")' }}
           >
+            {/* Company Name */}
+            <div className="absolute top-8 right-8">
+              <span className="text-2xl font-bold">
+                <span className="text-white">Adapt</span>
+                <span className="text-white/70">eq</span>
+              </span>
+            </div>
+            
             {/* Title Section */}
-            <div className="text-center max-w-4xl">
+            <div className="self-end max-w-4xl text-right mt-16">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Beyond Prompting: Evidence-Based Tactics for More Human Conversation
               </h1>
-              <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-100">
-                From Boring Text to Adaptive Dialog
-              </h2>
               <p className="text-lg mb-4 text-gray-100">
                 By Mary Nelson
               </p>
             </div>
             
-            {/* Teaser Summary */}
-            <div className="max-w-3xl mt-8">
-              <p className="text-lg leading-relaxed text-gray-100 text-center">
+            {/* Subtitle and Summary Section */}
+            <div className="max-w-3xl mt-16">
+              <h2 className="text-2xl md:text-3xl font-light mb-12 text-gray-100">
+                From Boring Text to Adaptive Dialog
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-100">
                 Users don't abandon AI conversations because the content is wrong; they quit because the dialog is wrong. 
                 Impersonal. Generic. Boring. That's why as many and 80% of users bail out frustrated. 
                 Adapteq, ProSocial's cognitive architecture, layers memory, live classification, adaptive prompts, 
