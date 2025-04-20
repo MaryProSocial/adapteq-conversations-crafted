@@ -131,7 +131,7 @@
 
 @media print {
   @page {
-    margin: 0.5in;
+    margin: 0.4in;
     size: letter portrait;
   }
   
@@ -145,7 +145,7 @@
   }
 
   h1 {
-    page-break-before: auto;
+    page-break-before: avoid;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -171,8 +171,8 @@
   /* White Paper specific print styles */
   .prose > div:first-child {
     margin: 0;
-    height: 10.5in;
-    width: 7.5in;
+    height: 9.8in;
+    width: 7.7in;
     position: relative;
     background-image: url("/lovable-uploads/097d3e3d-1931-46ac-acea-9362d90926ad.png") !important;
     background-size: cover !important;

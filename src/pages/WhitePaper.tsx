@@ -36,7 +36,7 @@ const WhitePaper = () => {
         {/* Cover Page */}
         <article className="prose max-w-none">
           <div 
-            className="min-h-[10.5in] w-full relative mb-8 flex flex-col items-center justify-between py-16 px-8 text-white rounded-lg print:rounded-none"
+            className="min-h-[9.8in] w-full relative mb-8 flex flex-col items-center justify-between py-12 px-6 text-white rounded-lg print:rounded-none"
             style={{ 
               backgroundImage: 'url("/lovable-uploads/097d3e3d-1931-46ac-acea-9362d90926ad.png")',
               backgroundSize: 'cover',
@@ -44,7 +44,7 @@ const WhitePaper = () => {
             }}
           >
             {/* Company Name */}
-            <div className="absolute top-8 right-8">
+            <div className="absolute top-6 right-6">
               <span className="text-2xl font-bold">
                 <span className="text-white">Adapt</span>
                 <span className="text-white/70">eq</span>
@@ -52,7 +52,7 @@ const WhitePaper = () => {
             </div>
             
             {/* Title Section */}
-            <div className="self-end max-w-4xl text-right mt-16">
+            <div className="self-end max-w-4xl text-right mt-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Beyond Prompting: Evidence-Based Tactics for More Human Conversation
               </h1>
@@ -62,8 +62,8 @@ const WhitePaper = () => {
             </div>
             
             {/* Subtitle and Summary Section */}
-            <div className="max-w-3xl mt-16">
-              <h2 className="text-2xl md:text-3xl font-light mb-12 text-gray-100">
+            <div className="max-w-3xl mt-12">
+              <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-100">
                 From Boring Text to Adaptive Dialog
               </h2>
               <p className="text-lg leading-relaxed text-gray-100">
@@ -77,10 +77,10 @@ const WhitePaper = () => {
             </div>
             
             {/* Website & Page Number */}
-            <div className="absolute bottom-8 w-full px-8">
+            <div className="absolute bottom-6 w-full px-6">
               <div className="flex justify-between items-center text-sm text-gray-200">
                 <span>www.adapteq.ai</span>
-                <span className="print:fixed print:bottom-8 print:right-8">1</span>
+                <span className="print:fixed print:bottom-6 print:right-6">1</span>
               </div>
             </div>
           </div>
