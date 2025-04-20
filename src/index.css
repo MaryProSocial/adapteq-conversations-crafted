@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -131,12 +132,15 @@
 
 @media print {
   @page {
-    margin: 2cm;
+    margin: 0;
     size: letter portrait;
   }
   
   body {
+    margin: 0;
+    padding: 0;
     font-size: 12pt;
+    background: none !important;
   }
 
   h1 {
@@ -169,6 +173,12 @@
     height: 11in;
     width: 8.5in;
     position: relative;
+    background-image: url("/lovable-uploads/097d3e3d-1931-46ac-acea-9362d90926ad.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    page-break-after: always;
+    color: white !important;
   }
 
   .print\:fixed {
