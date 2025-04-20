@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, Printer } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const WhitePaper = () => {
   const handlePrint = () => {
@@ -30,6 +31,13 @@ const WhitePaper = () => {
           >
             <Download className="h-4 w-4" />
             Download PDF
+          </Button>
+          <Button 
+            variant="outline"
+            className="flex items-center gap-2"
+            asChild
+          >
+            <Link to="/executive-summary">Next Page</Link>
           </Button>
         </div>
         

@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import ApiDocs from "./pages/ApiDocs";
 import NotFound from "./pages/NotFound";
 import WhitePaper from "./pages/WhitePaper";
+import ExecutiveSummary from "./pages/ExecutiveSummary";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/api-docs" element={<ApiDocs />} />
         <Route path="/white-paper" element={<WhitePaper />} />
+        <Route path="/executive-summary" element={<ExecutiveSummary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
