@@ -52,7 +52,7 @@ const WhitePaper = () => {
             </div>
             
             {/* Title Section */}
-            <div className="self-end w-[60%] text-right mt-12">
+            <div className="self-end w-[80%] text-right mt-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Beyond Prompting: Evidence-Based Tactics for More Human Conversation
               </h1>
