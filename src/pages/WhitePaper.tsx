@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, Printer } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const WhitePaper = () => {
   const handlePrint = () => {
@@ -31,13 +30,6 @@ const WhitePaper = () => {
           >
             <Download className="h-4 w-4" />
             Download PDF
-          </Button>
-          <Button 
-            variant="outline"
-            className="flex items-center gap-2"
-            asChild
-          >
-            <Link to="/executive-summary">Next Page</Link>
           </Button>
         </div>
         
@@ -76,7 +68,7 @@ const WhitePaper = () => {
               </h2>
               <p className="text-base leading-relaxed text-gray-100" style={{ fontSize: 'smaller' }}>
                 Users don't abandon AI conversations because the content is wrong; they quit because the dialog is wrong. 
-                Impersonal. Generic. Boring. That's why as many and 80% of users bail out frustrated. 
+                Impersonal. Generic. Boring. That's why as many as 80% of users bail out frustrated. 
                 Adapteq, ProSocial's cognitive architecture, layers memory, live classification, adaptive prompts, 
                 and reinforcement learning to spark conversations that feel human. Grounded in decades of psychology 
                 and learning science research, Adapteq plugs into any LLM to turn static chat into dynamic, 
