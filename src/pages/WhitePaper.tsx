@@ -14,7 +14,7 @@ const WhitePaper = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-12">  {/* Increased vertical padding from py-8 to py-12 */}
         <div className="flex justify-end gap-4 mb-8 print:hidden">
           <Button 
             variant="outline" 
