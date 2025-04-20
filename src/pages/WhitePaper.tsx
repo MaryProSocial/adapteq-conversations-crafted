@@ -36,7 +36,7 @@ const WhitePaper = () => {
         {/* Cover Page */}
         <article className="prose max-w-none">
           <div 
-            className="min-h-[11in] w-full relative mb-8 flex flex-col items-center justify-between py-16 px-8 text-white rounded-lg print:rounded-none"
+            className="min-h-[10.5in] w-full relative mb-8 flex flex-col items-center justify-between py-16 px-8 text-white rounded-lg print:rounded-none"
             style={{ 
               backgroundImage: 'url("/lovable-uploads/097d3e3d-1931-46ac-acea-9362d90926ad.png")',
               backgroundSize: 'cover',
