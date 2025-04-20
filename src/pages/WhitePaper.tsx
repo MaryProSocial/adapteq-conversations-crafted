@@ -14,7 +14,7 @@ const WhitePaper = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-12">  {/* Increased vertical padding from py-8 to py-12 */}
+      <div className="container mx-auto px-4 py-12">
         <div className="flex justify-end gap-4 mb-8 print:hidden">
           <Button 
             variant="outline" 
@@ -52,7 +52,7 @@ const WhitePaper = () => {
             </div>
             
             {/* Title Section */}
-            <div className="self-end max-w-4xl text-right mt-12">
+            <div className="self-end w-[60%] text-right mt-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Beyond Prompting: Evidence-Based Tactics for More Human Conversation
               </h1>
@@ -62,11 +62,11 @@ const WhitePaper = () => {
             </div>
             
             {/* Subtitle and Summary Section */}
-            <div className="max-w-3xl mt-12">
+            <div className="w-[60%] mt-12">
               <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-100">
                 From Boring Text to Adaptive Dialog
               </h2>
-              <p className="text-lg leading-relaxed text-gray-100">
+              <p className="text-base leading-relaxed text-gray-100">
                 Users don't abandon AI conversations because the content is wrong; they quit because the dialog is wrong. 
                 Impersonal. Generic. Boring. That's why as many and 80% of users bail out frustrated. 
                 Adapteq, ProSocial's cognitive architecture, layers memory, live classification, adaptive prompts, 
