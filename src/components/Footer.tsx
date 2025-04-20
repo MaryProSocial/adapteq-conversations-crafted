@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -29,8 +29,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4 text-lg">Company</h4>
+            <h4 className="font-semibold mb-4 text-lg">Resources</h4>
             <ul className="space-y-2">
+              <li><Link to="/white-paper" className="text-gray-300 hover:text-white transition-colors">White Paper</Link></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">More Human Podcast</a></li>
