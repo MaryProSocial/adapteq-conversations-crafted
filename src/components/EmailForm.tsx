@@ -14,7 +14,7 @@ const EmailForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/MoreHumanContactForm', {
+      const response = await fetch('/api/morehumancontactform', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
