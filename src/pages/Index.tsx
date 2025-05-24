@@ -22,17 +22,18 @@ const Index = () => {
       <CognitiveArchitecture />
       <CTA />
       <Footer />
+
       <div className="fixed bottom-4 right-4 z-[9999]">
         <ChatWidget
           config={{
-            width: 350,
+            width: 400,
             height: 500,
-            primaryColor: '#4F46E5',
-            primaryHoverColor: '#4338CA',
+            primaryColor: '#1E3A8A',
+            primaryHoverColor: '#7C3AED',
             backgroundColor: 'white',
             textColor: 'white',
-            buttonSize: 80,
-            iconSize: 24,
+            buttonSize: 96,
+            iconSize: 48,
             position: 'bottom-right',
             title: 'Adapteq Sales Assistant',
             placeholder: 'Type a message...',

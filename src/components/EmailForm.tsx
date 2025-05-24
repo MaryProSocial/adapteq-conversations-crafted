@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,19 +9,48 @@ const EmailForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      toast({
-        title: "Success!",
-        description: "We'll be in touch with your demo details soon.",
+
+    try {
+      const response = await fetch('/api/MoreHumanContactForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          site_name: 'adapteq',
+          // name,
+          // message,
+        }),
       });
-      setEmail('');
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: data.message || "We'll be in touch with your demo details soon.",
+        });
+        setEmail('');
+      } else {
+        toast({
+          title: "Error",
+          description: data.error || "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Network error. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const handleTryFree = () => {
@@ -45,11 +73,11 @@ const EmailForm = () => {
           className="flex-grow"
         />
         <Button 
-          type="button" 
-          onClick={handleTryFree}
+          type="submit"
+          disabled={isSubmitting}
           className="bg-Adapteq-blue hover:bg-blue-700 sm:whitespace-nowrap"
         >
-          Try It Free
+          {isSubmitting ? "Submitting..." : "Request Demo"}
         </Button>
       </form>
     </div>
