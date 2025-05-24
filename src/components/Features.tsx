@@ -4,7 +4,7 @@ import { Braces, BrainCircuit, LineChart } from 'lucide-react';
 const Features = () => {
   const features = [
     {
-      title: "Adaptive Prompting",
+      title: "Personalization as a Service",
       description: "Our reinforcement learning algorithms continuously improve conversational patterns based on user interactions, with built-in memory to personalize each experience.",
       icon: <BrainCircuit size={48} className="text-Adapteq-blue" />,
       details: [
@@ -19,18 +19,18 @@ const Features = () => {
       icon: <Braces size={48} className="text-Adapteq-blue" />,
       details: [
         "Multi-model coordination",
-        "Domain-specific routing",
+        "Utterance level model-switching, cheaper and faster than fine-tuning",
         "Fallback mechanisms",
       ]
     },
     {
-      title: "Conversation Health Analytics",
-      description: "Comprehensive metrics and insights to track conversation quality, user satisfaction, and areas for improvement.",
+      title: "Super easy to customize for your use case",
+      description: "We offer flexible intent and emotion classification that allows you to configure conversational strategies and goals for your domain in minutes.",
       icon: <LineChart size={48} className="text-Adapteq-blue" />,
       details: [
         "Sentiment analysis",
-        "Completion rates",
-        "Satisfaction metrics",
+        "Intent recognition",
+        "Goal management",
       ]
     }
   ];
@@ -43,8 +43,8 @@ const Features = () => {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-400">Human-Centered Value</span>
           </h2>
           <p className="body-text max-w-3xl mx-auto">
-            Adapteq combines cutting-edge AI technology with deep expertise in human services to create 
-            conversational experiences that are empathetic, effective, and continuously improving.
+            Adapteq combines cutting-edge AI technology with deep expertise in conversational patterns to create 
+            personalized experiences that are empathetic, effective, and continuously improving.
           </p>
         </div>
 

@@ -20,7 +20,7 @@ const Hero = () => {
               Adaptive AI Conversations That Evolve With Every Interaction
             </h3>
             <p className="text-lg leading-relaxed text-gray-700">
-              Purpose-built to drive engagement, our adaptive conversation platform learns from each interaction to deepen user connections, improve outcomes, and increase retention—without requiring technical expertise.
+              Purpose-built to drive engagement, our adaptive conversation agent learns from each interaction to deepen user connections, improve outcomes, and increase retention.  Available as a standalone chat widget or as an API service.
             </p>
             <div className="mt-8">
               <EmailForm />
