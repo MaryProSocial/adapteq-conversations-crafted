@@ -38,7 +38,7 @@ const Index = () => {
             title: 'Adapteq Sales Assistant',
             placeholder: 'Type a message...',
             tenantId: '9528e5a1-4d61-4313-b04d-72a9b4c2e462',
-            apiKey: '',
+            apiKey: 'proxy',
             welcomeMessage: 'Hey! Are you interested in learning more about Adapteq? Ask me anything!',
             apiUrl: '/api/api_proxy',
             verbose: false,
