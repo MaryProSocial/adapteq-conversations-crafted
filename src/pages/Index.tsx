@@ -37,10 +37,10 @@ const Index = () => {
             position: 'bottom-right',
             title: 'Adapteq Sales Assistant',
             placeholder: 'Type a message...',
-            tenantId: import.meta.env.VITE_CHAT_TENANT_ID,
-            apiKey: import.meta.env.VITE_CHAT_API_KEY,
+            tenantId: '9528e5a1-4d61-4313-b04d-72a9b4c2e462',
+            apiKey: '',
             welcomeMessage: 'Hey! Are you interested in learning more about Adapteq? Ask me anything!',
-            apiUrl: import.meta.env.VITE_CHAT_API_URL,
+            apiUrl: '/api/api_proxy',
             verbose: false,
             showClassification: true
           }}

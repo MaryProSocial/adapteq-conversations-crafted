@@ -8,9 +8,9 @@ const CTA = () => {
         <div className="bg-gradient-to-r from-blue-800 to-purple-400 rounded-2xl overflow-hidden">
           <div className="flex flex-col md:flex-row">
             <div className="p-8 md:p-12 lg:p-16 text-white md:w-3/5">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to transform your human services?</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to transform your customer conversations?</h2>
               <p className="text-white/90 text-lg mb-8">
-                Join organizations that are using Adapteq to deliver more efficient, empathetic, and effective services to their communities.
+                Join organizations that are using Adapteq to deliver more efficient, empathetic, and effective services to their users.
               </p>
               <div className="max-w-md">
                 <DemoRequestForm />
