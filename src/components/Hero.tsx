@@ -1,7 +1,4 @@
-
 import React from 'react';
-import InteractiveChat from './InteractiveChat';
-import UnderstandConnect from './UnderstandConnect';
 import EmailForm from './EmailForm';
 
 const Hero = () => {
@@ -26,9 +23,37 @@ const Hero = () => {
               <EmailForm />
             </div>
           </div>
-          <div className="md:w-1/2 space-y-6">
-            <UnderstandConnect />
-            <InteractiveChat />
+
+          <div className="md:w-1/2">
+            <div>
+              <script async src="https://js.storylane.io/js/v2/storylane.js"></script>
+              <div className="sl-embed" style={{
+                position: 'relative',
+                width: '100%',
+                height: '600px',
+                marginTop: '20px'
+              }}>
+                <iframe 
+                  loading="lazy" 
+                  className="sl-demo" 
+                  src="https://app.storylane.io/demo/b6hfwyqngl7f?embed=inline" 
+                  name="sl-embed" 
+                  allow="fullscreen" 
+                  allowFullScreen 
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: '1px solid rgba(63,95,172,0.35)',
+                    boxShadow: '0px 0px 18px rgba(26, 19, 72, 0.15)',
+                    borderRadius: '10px',
+                    boxSizing: 'border-box'
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
