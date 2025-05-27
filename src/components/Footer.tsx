@@ -31,10 +31,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Resources</h4>
             <ul className="space-y-2">
-              <li><Link to="/white-paper" className="text-gray-300 hover:text-white transition-colors">White Paper</Link></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">White Paper</Link></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">More Human Podcast</a></li>
+              <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="https://more-human-pod.com" className="text-gray-300 hover:text-white transition-colors">More Human Podcast</a></li>
             </ul>
           </div>
         </div>

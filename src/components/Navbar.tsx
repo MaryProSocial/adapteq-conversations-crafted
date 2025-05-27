@@ -10,7 +10,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const handleTryFree = () => {
-    navigate('/signup');
+    navigate('/contact');
   };
 
   const navigateToSection = (sectionId: string) => {
@@ -75,7 +75,7 @@ const Navbar = () => {
               onClick={handleTryFree} 
               className="bg-Adapteq-blue hover:bg-blue-700"
             >
-              Try It Free
+              Contact Us
             </Button>
           </div>
 
@@ -133,7 +133,7 @@ const Navbar = () => {
                 }} 
                 className="bg-Adapteq-blue hover:bg-blue-700 w-full"
               >
-                Try It Free
+                Contact Us
               </Button>
             </div>
           </div>

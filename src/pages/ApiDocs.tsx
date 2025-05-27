@@ -11,7 +11,7 @@ const ApiDocs = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigate('/signup');
+    navigate('/contact');
   };
 
   return (
@@ -30,7 +30,7 @@ const ApiDocs = () => {
               className="bg-Adapteq-purple hover:bg-Adapteq-dark-purple flex items-center"
             >
               <UserPlus className="mr-2 h-4 w-4" />
-              Sign Up for API Access
+              Contact Us for API Access
             </Button>
           </div>
           

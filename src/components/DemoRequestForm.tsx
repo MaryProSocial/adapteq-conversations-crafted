@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from 'lucide-react';
@@ -9,7 +8,7 @@ const DemoRequestForm = ({ onSuccess }: { onSuccess?: () => void }) => {
   const navigate = useNavigate();
   
   const handleTryNow = () => {
-    navigate('/signup');
+    navigate('/contact');
     if (onSuccess) onSuccess();
   };
 
@@ -19,11 +18,11 @@ const DemoRequestForm = ({ onSuccess }: { onSuccess?: () => void }) => {
         onClick={handleTryNow} 
         className="w-full bg-white text-purple-700 hover:bg-gray-100 flex items-center justify-center"
       >
-        Try it now for free <ExternalLink className="ml-2 h-4 w-4" />
+        Contact Us <ExternalLink className="ml-2 h-4 w-4" />
       </Button>
       
       <p className="text-xs text-center text-white/80">
-        No credit card required. Cancel anytime.
+        We'll get back to you within 24 hours.
       </p>
     </div>
   );

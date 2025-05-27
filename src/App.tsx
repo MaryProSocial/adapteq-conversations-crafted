@@ -1,10 +1,9 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import SignUp from "./pages/SignUp";
+import Contact from "./pages/Contact";
 import ApiDocs from "./pages/ApiDocs";
 import NotFound from "./pages/NotFound";
 import WhitePaper from "./pages/WhitePaper";
@@ -19,7 +18,7 @@ const App = () => (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/api-docs" element={<ApiDocs />} />
         <Route path="/white-paper" element={<WhitePaper />} />
         <Route path="/executive-summary" element={<ExecutiveSummary />} />
